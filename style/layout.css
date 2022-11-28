@@ -1,11 +1,54 @@
-header > div >  div >  div > .icon {
+header > div > div > div > .icon {
 
-    max-height: 120px;
+    max-height: 110px;
+    margin: 5px 0px 5px 0px;
     float: left;
 
 }
 
+h1 {
+    padding: 60px 0px 0px 0px; 
+    font-family: Baskerville, Baskerville Old Face, Hoefler Text, Garamond, Times New Roman, serif; 
+    font-style: italic;
+
+
+}
+
+h2 {
+
+    padding: 25px 0px 25px 0px;
+    margin: 25px 0px 25px 0px;
+
+}
+
+main > .content{
+
+    margin: 25px 0px 25px 0px;
+
+}
+
+footer {
+    margin: 25px 0px 0px 0px;
+    padding: 25px 0px 25px 0px;
+}
+
+.icone_footer {
+    height: 15px;
+    margin: 0px 3px 0px 3px;
+}
+
+.footer_list {
+    list-style-type: none;
+}
+
+
 .btn-zone {
-    height: 100%;
-    float: right;
+    
+    padding-top: 80px;
+    margin: 5px 0px 5px 0px;
+
+}
+
+a:hover{
+    color: white;
 }

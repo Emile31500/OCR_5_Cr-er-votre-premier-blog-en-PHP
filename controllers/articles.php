@@ -9,6 +9,12 @@ class Articles extends Controller {
 
     }
 
+    public function lire(){
+
+        $this->render_page("index", ["title" => "Voilà."]);
+
+    }
+
 }
 
 
