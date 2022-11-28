@@ -1,0 +1,11 @@
+header > div >  div >  div > .icon {
+
+    max-height: 120px;
+    float: left;
+
+}
+
+.btn-zone {
+    height: 100%;
+    float: right;
+}
