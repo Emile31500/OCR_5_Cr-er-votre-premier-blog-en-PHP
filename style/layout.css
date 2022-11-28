@@ -10,6 +10,7 @@ h1 {
     padding: 60px 0px 0px 0px; 
     font-family: Baskerville, Baskerville Old Face, Hoefler Text, Garamond, Times New Roman, serif; 
     font-style: italic;
+    font-size: 20px;
 
 
 }
@@ -51,4 +52,16 @@ footer {
 
 a:hover{
     color: white;
+}
+
+.collapse.show {
+    visibility: visible;
+  }
+@media screen and (max-width: 995px) {
+
+    header > div > div > div > .icon {
+
+        height: 90px;
+    
+    }
 }
