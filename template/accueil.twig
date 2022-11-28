@@ -1,0 +1,62 @@
+{% extends 'layout.twig' %}
+
+{% block title %}
+{% endblock %}
+
+{% block content%}
+    
+    <div class="row">
+        <div class="col col-3">
+            <img src="../media/image/">
+        </div>
+        <div class="col col-9">
+            {{description}}
+        </div>
+    </div>
+    <form id="send_message_form" method="post" action="http://127.0.0.1/Projet%20OC5/accueil/index">
+        <div class="row">
+            <div class="col-6">
+                <label>
+                    Nom :
+                </label> 
+                <br>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="col-6">
+                <label>
+                    Prénom : 
+                </label> 
+                <br>
+                <input type="text" id="firstname" name="firstname">
+            </div>
+            <div class="row">
+                <label>
+                    Email :
+                </label>
+                <br>
+                <input type="email" id="email" name="email"> 
+            </div>
+            <div class="row">
+                <label>
+                    Objet :
+                </label>
+                <br>
+                <input type="text" id="objet" name="objet"> 
+            </div>
+            <div class="row">
+                <label>
+                    Message :
+                </label>
+                <br>
+                <textarea>
+                </textarea> 
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input class="btn btn-primary" type="submit"> 
+                </div>              
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
