@@ -36,19 +36,29 @@ abstract class Model {
 
 
     }
-/*
+
     public function getBy(){
 
         getConnection();
-        $this->array_selec_
-        $request = "SELECT * FROM ".$this->table." WHERE 1";
+        $array_values = array_values($this->array_selector_request);
+        $array_keys = array_keys($this->array_selector_request);
+
+        foreach ($array_selector_request as $selector){
+
+            $where = array_keys($selector)."=".array_values($selector)." AND ";
+
+        }
+
+        $where = substr($where, 0, -5);
+
+        $request = "SELECT * FROM ".$this->table." WHERE ".$where;
         $query = $this->connexion->prepare($request);
         $query->execute();
         return $query->fetchAll();
 
 
     }
-*/
+
 
 }
 
