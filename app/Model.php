@@ -84,13 +84,40 @@ abstract class Model {
 
         }
 
-        $where = substr($where, 0, -5);
+        $keys = substr($keys, 0, -2);
+        $values = substr($values, 0, -2);
 
         $request = "INSERT INTO ".$this->table."(".$keys.") VALUES (".$values.")";
         $query = $this->connexion->prepare($request);
         $query->execute();
-        return $query->fetchAll();
+
     }
+
+    public function update(){
+
+        getConnection();
+
+        foreach ($array_value_request as $value){
+
+            $values = "`".$where.array_keys($value)."`=".array_values($value).", ";
+
+        }
+
+
+        foreach ($array_selector_request as $selector){
+
+            $selector = "`".$selector.array_keys($selector)."`=".array_values($selector)." AND ";
+
+        }
+       
+        $values = substr($values, 0, -5);
+        $selector = substr($selector, 0, -5);
+
+        $request = "UPDATE ".$this->table." SET ".$value." WHERE ".$selector;
+        $query = $this->connexion->prepare($request);
+        $query->execute();
+    }
+
 }
 
 
