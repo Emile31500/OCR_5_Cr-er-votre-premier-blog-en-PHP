@@ -6,6 +6,8 @@ abstract class Model {
     private $user = "root";
     private $password = "";
    
+    public $public = "";
+    public $id = "";
     
     public $connexion;
 
@@ -19,6 +21,15 @@ abstract class Model {
             echo 'Erreur : '.$exception->getMessage();
 
         }
+
+
+    }
+
+    public function getAll(){
+
+        getConnection();
+        $request = "SELECT * FROM ".$this->table." WHERE 1";
+        $prepare = $this->connexion->prepare($request);
 
 
     }
