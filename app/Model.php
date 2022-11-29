@@ -37,6 +37,17 @@ abstract class Model {
 
     }
 
+    public function getOne(){
+
+        getConnection();
+        $request = "SELECT * FROM ".$this->table." WHERE id=".$this->id;
+        $query = $this->connexion->prepare($request);
+        $query->execute();
+        return $query->fetch();
+
+
+    }
+
     public function getBy(){
 
         getConnection();
