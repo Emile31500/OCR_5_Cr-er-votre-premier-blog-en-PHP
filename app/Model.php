@@ -7,6 +7,8 @@ abstract class Model {
     private $password = "";
     
     public $array_selector_request = [];
+    public $array_value_request = [];
+
     public $public = "";
     public $id = "";
     
@@ -33,8 +35,7 @@ abstract class Model {
         $query = $this->connexion->prepare($request);
         $query->execute();
         return $query->fetchAll();
-
-
+    
     }
 
     public function getOne(){
@@ -44,19 +45,15 @@ abstract class Model {
         $query = $this->connexion->prepare($request);
         $query->execute();
         return $query->fetch();
-
-
+    
     }
 
     public function getBy(){
 
         getConnection();
-        $array_values = array_values($this->array_selector_request);
-        $array_keys = array_keys($this->array_selector_request);
-
         foreach ($array_selector_request as $selector){
 
-            $where = array_keys($selector)."=".array_values($selector)." AND ";
+            $where = $where.array_keys($selector)."=".array_values($selector)." AND ";
 
         }
 
@@ -67,10 +64,33 @@ abstract class Model {
         $query->execute();
         return $query->fetchAll();
 
-
     }
 
+    public function insert(){
 
+        getConnection();
+        $array_values = array_values($this->array_selector_request);
+        $array_keys = array_keys($this->array_selector_request);
+
+        foreach ($array_keys as $array_key){
+
+            $keys = $keys."`".$array_key."`, ";
+
+        }
+
+        foreach ($array_values as $array_value){
+
+            $values = $values."`".$array_value."`, ";
+
+        }
+
+        $where = substr($where, 0, -5);
+
+        $request = "INSERT INTO ".$this->table."(".$keys.") VALUES (".$values.")";
+        $query = $this->connexion->prepare($request);
+        $query->execute();
+        return $query->fetchAll();
+    }
 }
 
 
