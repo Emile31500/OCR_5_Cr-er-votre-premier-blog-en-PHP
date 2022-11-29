@@ -89,7 +89,7 @@ abstract class Model {
 
         $request = "INSERT INTO ".$this->table."(".$keys.") VALUES (".$values.")";
         $query = $this->connexion->prepare($request);
-        $query->execute();
+        return $query->execute();
 
     }
 
@@ -115,7 +115,7 @@ abstract class Model {
 
         $request = "UPDATE ".$this->table." SET ".$value." WHERE ".$selector;
         $query = $this->connexion->prepare($request);
-        $query->execute();
+        return $query->execute();
     }
 
 }
