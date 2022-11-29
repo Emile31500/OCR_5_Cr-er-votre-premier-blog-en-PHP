@@ -5,6 +5,8 @@ class Messages extends Controller {
 
     public function envoyer(){
 
+        $status;
+
         if (isset($_POST["name"]) && !empty($_POST["name"]) &&
             isset($_POST["firstname"]) && !empty($_POST["firstname"]) &&
             isset($_POST["message"]) && !empty($_POST["message"]) &&
@@ -23,25 +25,23 @@ class Messages extends Controller {
                     "email" => $_POST["email"],
                     "objet" => $objet,
                     "est_supprimer" => 0
-                    
                 ];
-
+                
                 $this->loadModel("Message");
-                $this->Message->table="Messages";
-                $messages = $this->Message->insert($array);
+                $this->model->table = "messages";
+                $this->model->array_selector_request = $array;
+                $status = $this->model->insert();
+                
+                $this->render_page("messages", ["status" => $status]);
+            
+            } else {
 
+                $this->render_page("messages", ["status" => 'erreur']);
 
             }
-            
-        $this->render_page("index", [
-                                    "title" => "Accueil",
-                                    "description" => [
-                                        "Passionné d'informatique depuis ma 3em, je suis diplômé d'un BTS Services Informatiques aux Organisations spécialité administration réseau. Suite à cela, je en formation de développement PHP/Symfony.",
-                                        "Dans l'avenir, après avoir continué vers un diplôme d'ingénieure dans le même domaine, je proposerai par la suite mes services de développeur full stack Symfony et JavaScript sur Toulouse et environ en présentiel, et sur toute la France en télétravail."
-                                    ]
 
-                                    
-                                ]);
+
+        
 
     }
 
