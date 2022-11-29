@@ -5,7 +5,8 @@ abstract class Model {
     private $data_base = "mon_blog";
     private $user = "root";
     private $password = "";
-   
+    
+    public $array_selector_request = [];
     public $public = "";
     public $id = "";
     
@@ -29,11 +30,25 @@ abstract class Model {
 
         getConnection();
         $request = "SELECT * FROM ".$this->table." WHERE 1";
-        $prepare = $this->connexion->prepare($request);
+        $query = $this->connexion->prepare($request);
+        $query->execute();
+        return $query->fetchAll();
 
 
     }
+/*
+    public function getBy(){
 
+        getConnection();
+        $this->array_selec_
+        $request = "SELECT * FROM ".$this->table." WHERE 1";
+        $query = $this->connexion->prepare($request);
+        $query->execute();
+        return $query->fetchAll();
+
+
+    }
+*/
 
 }
 
