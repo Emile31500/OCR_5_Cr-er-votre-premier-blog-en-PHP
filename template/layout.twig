@@ -7,8 +7,10 @@
         <link rel="shortcut icon" tpe="x-icon" href="../media/image/icone/icon_site.png"/>
         <link href="../style/bootstrap-5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" /> 
         <script src="../style/bootstrap-5.0.2/dist/js/bootstrap.min.js"></script>
-            <link href="../style/layout.css" rel="stylesheet"/>
-            <link href="../style/style.css" rel="stylesheet"/>
+        <link href="../style/layout.css" rel="stylesheet"/>
+        <link href="../style/style.css" rel="stylesheet"/>
+        {% block style_sheet %}
+        {% endblock %}
 
     </head>
     <body>
@@ -31,13 +33,13 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link text-light" aria-current="page" href="#">Accueil</a>
+                    <a class="nav-link text-light" aria-current="page" href="http://127.0.0.1/Projet%20OC5/accueil/index">Accueil</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-light" aria-current="page" href="#">Articles</a>
+                    <a class="nav-link text-light" aria-current="page" href="http://127.0.0.1/Projet%20OC5/articles/liste">Articles</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-light" aria-current="page" href="#">Administration</a>
+                    <a class="nav-link text-light" aria-current="page" href="http://127.0.0.1/Projet%20OC5/administrations/index">Administration</a>
                   </li>
                 </ul>
               </div>
@@ -45,7 +47,8 @@
           </nav>
         <main class="container">
             <h2>
-                {{title}}
+                {% block title %}
+                {% endblock %}
             </h2>
             <div class="content">
                 {% block content%}

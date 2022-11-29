@@ -3,7 +3,7 @@
 class Articles extends Controller {
 
 
-    public function index(){
+    public function liste(){
 
         $this->render_page("index", ["title" => "Voilà."]);
 
