@@ -9,7 +9,7 @@ abstract class Model {
     public $array_selector_request = [];
     public $array_value_request = [];
 
-    public $public = "";
+    public $table = "";
     public $id = "";
     
     public $connexion;
@@ -23,6 +23,7 @@ abstract class Model {
 
             echo 'Erreur : '.$exception->getMessage();
 
+            
         }
 
 
@@ -30,7 +31,7 @@ abstract class Model {
 
     public function getAll(){
 
-        getConnection();
+        $this->getConnection();
         $request = "SELECT * FROM ".$this->table." WHERE 1";
         $query = $this->connexion->prepare($request);
         $query->execute();
@@ -40,7 +41,7 @@ abstract class Model {
 
     public function getOne(){
 
-        getConnection();
+        $this->getConnection();
         $request = "SELECT * FROM ".$this->table." WHERE id=".$this->id;
         $query = $this->connexion->prepare($request);
         $query->execute();
@@ -50,7 +51,7 @@ abstract class Model {
 
     public function getBy(){
 
-        getConnection();
+        $this->getConnection();
         foreach ($array_selector_request as $selector){
 
             $where = $where.array_keys($selector)."=".array_values($selector)." AND ";
@@ -68,9 +69,11 @@ abstract class Model {
 
     public function insert(){
 
-        getConnection();
+        $this->getConnection();
         $array_values = array_values($this->array_selector_request);
         $array_keys = array_keys($this->array_selector_request);
+        $keys = "";
+        $values = "";
 
         foreach ($array_keys as $array_key){
 
@@ -80,22 +83,22 @@ abstract class Model {
 
         foreach ($array_values as $array_value){
 
-            $values = $values."`".$array_value."`, ";
+            $values = $values."'".$array_value."', ";
 
         }
 
         $keys = substr($keys, 0, -2);
         $values = substr($values, 0, -2);
 
-        $request = "INSERT INTO ".$this->table."(".$keys.") VALUES (".$values.")";
+        $request = "INSERT INTO `".$this->table."`(".$keys.") VALUES (".$values.")";
         $query = $this->connexion->prepare($request);
-        return $query->execute();
-
+        $status = $query->execute();
+        return $status;
     }
 
     public function update(){
 
-        getConnection();
+        $this->getConnection();
 
         foreach ($array_value_request as $value){
 
