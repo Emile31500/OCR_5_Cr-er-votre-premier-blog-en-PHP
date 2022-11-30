@@ -5,8 +5,6 @@ class Messages extends Controller {
 
     public function envoyer(){
 
-        $status;
-
         if (isset($_POST["name"]) && !empty($_POST["name"]) &&
             isset($_POST["firstname"]) && !empty($_POST["firstname"]) &&
             isset($_POST["message"]) && !empty($_POST["message"]) &&

@@ -8,9 +8,7 @@ var message = document.getElementById('message');*/
 var xml = new XMLHttpRequest();
 var data;
 
-//alert("link");
-
-/*send_message_form.addEventListener('submit', function(event){
+send_message_form.addEventListener('submit', function(event){
 
     event.preventDefault();
     data = new FormData(this);
@@ -18,14 +16,7 @@ var data;
     xml.responseType = "document";
     xml.onreadystatechange = function () {
 
-        if(xml.readyState !== 4 && xml.status !== 200) {
-            
-            alert("Erreur dans la requête asynchrone, impossible d'exécuter la requête");
-        
-        }
-
-        var res = xml.response.querySelector("async_res_zone");
-        console.log(xml.response);
+        var res = xml.response.querySelector("#async_res_zone");
 
         if (res.innerHTML == 1 || res.innerHTML == true|| res.innerHTML == "true") {
 
@@ -39,7 +30,7 @@ var data;
 
     }
 
-    xml.open("GET", "http://127.0.0.1/Projet%20OC5/message/envoyer");
+    xml.open("POST", "http://127.0.0.1/Projet%20OC5/messages/envoyer");
     xml.send(data);
 
-});*/
+});
