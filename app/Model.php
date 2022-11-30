@@ -70,8 +70,8 @@ abstract class Model {
     public function insert(){
 
         $this->getConnection();
-        $array_values = array_values($this->array_selector_request);
-        $array_keys = array_keys($this->array_selector_request);
+        $array_values = array_values($this->array_value_request);
+        $array_keys = array_keys($this->array_value_request);
         $keys = "";
         $values = "";
 

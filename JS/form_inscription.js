@@ -75,7 +75,14 @@ sing_form.addEventListener("submit", function(event){
 
         res = xml.res.querySelector("#async_res_zone");
 
-        if (res == 1 || res == true || res == "true"){
+        if (res == "parametres_manquant"){
+
+            notif_zone.className = "";
+            notif_zone.classList.add("alert");
+            notif_zone.classList.add("alert-danger");
+            notif_zone.innerHTML = "Votre inscription a bien été confirmé";
+            
+        } else if (res == 1 || res == true || res == "true"){
 
             notif_zone.className = "";
             notif_zone.classList.add("alert");

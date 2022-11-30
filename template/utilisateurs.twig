@@ -8,6 +8,7 @@
 {% endblock %}
 
 {% block content%}
+    <div id="async_res_zone">{{ res_query }}</div>
      <div class="section align-items-center">
         <form id="sing_form" method="post" action="http://127.0.0.1/Projet%20OC5/utilisateurs/inscription">
             <div>
@@ -23,35 +24,42 @@
                         Prénom : 
                     </label> 
                     <br>
-                    <input placeholder type="text" id="firstname" name="firstname">
+                    <input require type="text" id="firstname" name="firstname">
+                </div>
+                <div class="form-group">
+                    <label for="user_name">
+                        Prénom : 
+                    </label> 
+                    <br>
+                    <input require type="text" id="user_name" name="user_name">
                 </div>
                 <div class="form-group">
                     <label for="birth_day">
                         Date de naissance : 
                     </label> 
                     <br>
-                    <input placeholder type="date" id="birth_day" name="birth_day">
+                    <input require type="date" id="birth_day" name="birth_day">
                 </div>
                 <div class="form-group">
                     <label for="email">
                         Email :
                     </label>
                     <br>
-                    <input placeholder type="email" id="email" name="email"> 
+                    <input require type="email" id="email" name="email"> 
                 </div>
                 <div class="form-group">
                     <label for="password">
                         Mot de passe :
                     </label>
                     <br>
-                    <input placeholder type="password" id="password" name="password"> 
+                    <input require type="password" id="password" name="password"> 
                 </div>
                 <div class="form-group">
                     <label for="confirm_password">
                         Confimer :
                     </label>
                     <br>
-                    <input placeholder type="password" id="confirm_password" name="confirm_password"> 
+                    <input require type="password" id="confirm_password" name="confirm_password"> 
                 </div>
                 <div  class="form-group text-end">
                     <input class="btn btn-primary" type="submit">             
@@ -60,9 +68,9 @@
                     <a class="text-primary" href="http://127.0.0.1/Projet%20OC5/utilisateurs/sidentifier"> Déjà un compte ? Connectez-vous !</a>
                 </div>
             </div>
+            <div class="alert">
+            </div>
         </form>
-        <div class="alert">
-        </div>
     </div>
 {% endblock %}
 {% block javascript_link %}

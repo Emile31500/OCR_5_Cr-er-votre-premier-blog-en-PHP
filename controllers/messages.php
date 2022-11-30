@@ -1,8 +1,7 @@
 <?php
 
 class Messages extends Controller {
-
-
+    
     public function envoyer(){
 
         if (isset($_POST["name"]) && !empty($_POST["name"]) &&
@@ -27,7 +26,7 @@ class Messages extends Controller {
                 
                 $this->loadModel("Message");
                 $this->model->table = "messages";
-                $this->model->array_selector_request = $array;
+                $this->model->array_value_request = $array;
                 $status = $this->model->insert();
                 
                 $this->render_page("messages", ["status" => $status]);
