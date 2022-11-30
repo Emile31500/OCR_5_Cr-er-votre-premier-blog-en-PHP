@@ -45,7 +45,7 @@
                             Nom :
                         </label> 
                         <br>
-                        <input placeholder type="text" id="name" name="name">
+                        <input require type="text" id="name" name="name"/>
                     </div>
                     <div class="col-6">
                         <label>
@@ -82,6 +82,8 @@
                 </div>
             </div>
         </form>
+        <div class="alert">
+        </div>
     </div>
 {% endblock %}
 {% block javascript_link %}
