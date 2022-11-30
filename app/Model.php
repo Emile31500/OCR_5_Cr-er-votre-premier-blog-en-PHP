@@ -99,7 +99,7 @@ abstract class Model {
     public function update(){
 
         $this->getConnection();
-
+        
         foreach ($array_value_request as $value){
 
             $values = "`".$where.array_keys($value)."`=".array_values($value).", ";
