@@ -9,7 +9,7 @@
 
 {% block content%}
      <div class="section align-items-center">
-        <form id="sing_form" method="post" action="http://127.0.0.1/Projet%20OC5/messages/envoyer">
+        <form id="sing_form" method="post" action="http://127.0.0.1/Projet%20OC5/utilisateurs/inscription">
             <div>
                 <div class="form-group">
                     <label for="name">
@@ -64,4 +64,7 @@
         <div class="alert">
         </div>
     </div>
+{% endblock %}
+{% block javascript_link %}
+    <script src="http://127.0.0.1/Projet%20OC5/JS/form_inscription.js"></sript>
 {% endblock %}
