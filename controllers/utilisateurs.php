@@ -38,6 +38,7 @@
                         "nom" => $_POST["name"],
                         "prenom" => $_POST["firstname"],
                         "nom_utilisateur" => $_POST["user_name"],
+                        "date_naissance" => $_POST["birth_day"],
                         "email" => $_POST["email"],
                         "hash_mdp" => $password_hash,
                         "date_enregistrement" => $date_enregistrement
@@ -104,14 +105,13 @@
 
                 }
 
-        } else {
+            } else {
 
-            $this->render_page("connexion", ["status" => "miss_parameters"]);
-            return false;
+                $this->render_page("connexion", ["status" => "miss_parameters"]);
+                return false;
 
-        }
-
-
+            }
+            
         }
 
     }

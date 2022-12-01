@@ -23,6 +23,7 @@ login_form.addEventListener("submit", function(event){
             notif_zone.classList.add("alert");
             notif_zone.classList.add("alert-success");
             notif_zone.innerHTML = "Connexion ...";
+            window.location.replace("http://127.0.0.1/Projet OC5/accueil/index");
             return true;
 
         } else if (res == "password_notok"){
@@ -58,6 +59,7 @@ login_form.addEventListener("submit", function(event){
             return false;
 
         }
+
         return false;
 
     }
