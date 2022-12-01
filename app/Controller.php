@@ -13,7 +13,7 @@
         public function render_page(string $fichier, $array_values=[]){
 
             global $twig;
-            echo $twig->render(strtolower(get_class($this)).".twig", $array_values);
+            echo $twig->render(strtolower(get_class($this))."/".$fichier.".twig", $array_values);
 
         }
 
