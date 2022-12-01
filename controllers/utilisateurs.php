@@ -19,6 +19,8 @@
                 isset($_POST["password"]) && !empty($_POST["password"]) &&
                 isset($_POST["confirm_password"]) && !empty($_POST["confirm_password"])){
 
+                    $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
+
                     $date_enregistrement = date("Y-m-d");
                     $array_selector = [
                                         "email" => $_POST['email'],
@@ -31,7 +33,7 @@
                         "prenom" => $_POST["firstname"],
                         "nom_utilisateur" => $_POST["user_name"],
                         "email" => $_POST["email"],
-                        "hash_mdp" => $_POST["password"],
+                        "hash_mdp" => $password_hash,
                         "date_enregistrement" => $date_enregistrement
                     ];
                     
