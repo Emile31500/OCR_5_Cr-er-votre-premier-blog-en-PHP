@@ -2,14 +2,27 @@
     //Constance chemin 
     define('ROOT', str_replace('index.php', "", $_SERVER['SCRIPT_FILENAME']));
     
+                            
+    session_start();
+    if(isset($_SESSION["id_user"]) && !empty($_SESSION["id_user"])){
+
+        $id_user = $_SESSION["id_user"];
+
+    } else {
+
+        $id_user = false;
+
+    }
 
     require_once(ROOT.'vendor/autoload.php');
     
     $loader = new Twig_loader_Filesystem(ROOT."template");
     $twig = new Twig_Environment($loader, [/*'cache' => ROOT."/tmp"*/]);
 
+    require_once(ROOT.'app/Session.php');
     require_once(ROOT.'app/Model.php');
     require_once(ROOT.'app/Controller.php');
+    
    
     $params = explode('/', $_GET['p']);
 

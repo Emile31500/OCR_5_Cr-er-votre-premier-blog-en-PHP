@@ -87,7 +87,9 @@
 
                     if(password_verify($_POST["password"], $user["hash_mdp"])){
 
+                        $_SESSION["id_user"] = $user["id"];
                         $this->render_page("connexion", ["status" => "password_ok"]);
+
                         return true;
 
                     } else {
