@@ -60,9 +60,51 @@
                 $this->render_page("inscription", ["res_query" => "parametres_manquant"]);
 
             }
+       
+        }
 
+        public function connection(){
 
-            
+            if (isset($_POST["login"]) && !empty($_POST["login"]) && 
+            isset($_POST["password"]) && !empty($_POST["password"])) {
+                
+                $this->loadModel("Utilisateur");
+                $this->model->table = "utilisateurs";
+                $this->model->array_user_keys = [
+                                                    "email" => $_POST["login"],
+                                                    "telephone" => $_POST["login"]
+                                                ];
+                $user = $this->model->is_exist_user();
+
+                if ($user) {
+
+                    if(password_verify($_POST["password"], $user["hash_mdp"])){
+
+                        $this->render_page("connexion", ["status" => "password_ok"]);
+                        return true;
+
+                    } else {
+
+                        $this->render_page("connexion", ["status" => "password_notok"]);
+                        return false;
+
+                    }
+                    
+
+                } else {
+
+                    $this->render_page("connexion", ["status" => "user_not_exist"]); 
+                    return false;
+
+                }
+
+        } else {
+
+            $this->render_page("connexion", ["status" => "miss_parameters"]);
+            return false;
+
+        }
+
 
         }
 

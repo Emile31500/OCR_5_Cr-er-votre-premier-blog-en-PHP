@@ -11,17 +11,15 @@
             
         }
 
-        function is_exist_user(){
+        public function is_exist_user(){
 
             $request = "SELECT * FROM ".$this->table." WHERE email='".$this->array_user_keys["email"]."' OR telephone='".$this->array_user_keys["telephone"]."'";
             $query = $this->connexion->prepare($request);
             $query->execute();
             return $query->fetchAll();
             
-
         }
 
     }
-
-
+    
 ?>
