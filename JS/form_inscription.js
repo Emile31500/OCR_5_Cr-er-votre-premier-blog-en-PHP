@@ -1,13 +1,12 @@
-var sing_form = document.querySelector("#sing_form");
-var notif_zone = document.querySelector("#alert");
-
-var nom = document.querySelector("#name");
-var firstname = document.querySelector("#firstname");
-var user_name = document.querySelector("#user_name")
-var email = document.querySelector("#email");
-var password = document.querySelector("#password");
-var confirm_password = document.querySelector("#confirm_password");
-var birth_day = document.querySelector("#birth_day");
+var sing_form = document.getElementById("sing_form");
+var notif_zone = document.getElementById("notif_zone");
+var nom = document.getElementById("name");
+var firstname = document.getElementById("firstname");
+var user_name = document.getElementById("user_name")
+var email = document.getElementById("email");
+var password = document.getElementById("password");
+var confirm_password = document.getElementById("confirm_password");
+var birth_day = document.getElementById("birth_day");
 
 var xml = new XMLHttpRequest();
 var data;
@@ -37,7 +36,7 @@ sing_form.addEventListener("submit", function(event){
         notif_zone.innerHTML = "Le nom ne doit pas contenir plus de 64 caractères";
         return false;
     
-    } else if (prenom.value.length > 64 ) {
+    } else if (firstname.value.length > 64 ) {
 
         notif_zone.className = "";
         notif_zone.classList.add("alert");
@@ -77,7 +76,7 @@ sing_form.addEventListener("submit", function(event){
         notif_zone.innerHTML = "La longueur de votre mot de passe n'est pas valide : Il doit contenir entre 8 et 64 caractères";
         return false;
     
-    } else if (is_password_valid(password.value)) {
+    } else if (is_password_valid(password.value) == false) {
 
         notif_zone.className = "";
         notif_zone.classList.add("alert");
@@ -87,16 +86,16 @@ sing_form.addEventListener("submit", function(event){
 
     }
     
-    xml.onreadystatechange() = function() {
+    xml.onreadystatechange = function (){
 
-        res = xml.res.querySelector("#async_res_zone");
+        res = xml.res.getElementById("async_res_zone");
 
         if (res == "parametres_manquant"){
 
             notif_zone.className = "";
             notif_zone.classList.add("alert");
             notif_zone.classList.add("alert-danger");
-            notif_zone.innerHTML = "Votre inscription a bien été confirmé";
+            notif_zone.innerHTML = "Un paramètre est manquant pour votre inscription : mercid e remplir tout les champs nécessaire ou de contacter notre service technique.";
             
         } else if (res == "utilisateur_existe"){
 
@@ -117,7 +116,7 @@ sing_form.addEventListener("submit", function(event){
             notif_zone.className = "";
             notif_zone.classList.add("alert");
             notif_zone.classList.add("alert-danger");
-            notif_zone.innerHTML = "Une erreur est survenu lors l'exécution de la reqête";
+            notif_zone.innerHTML = "Une erreur inconnu est survenu lors l'exécution de la requête";
     
         }
     
