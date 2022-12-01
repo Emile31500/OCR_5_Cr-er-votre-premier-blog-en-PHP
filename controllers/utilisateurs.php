@@ -8,6 +8,12 @@
 
         }
 
+        public function seconnecter(){
+
+            $this->render_page("seconnecter", ["title" => "Connectez-vous !"]);
+
+        }
+
         public function inscription(){
 
             if (isset($_POST["name"]) && !empty($_POST["name"]) &&
