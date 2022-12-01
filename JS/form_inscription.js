@@ -25,9 +25,7 @@ sing_form.addEventListener("submit", function(event){
 
     event.preventDefault();
     data = new FormData(this)
-
-    xml.responseType = "document";
-
+    
     if (nom.value.length > 64 ) {
 
         notif_zone.className = "";
@@ -86,25 +84,28 @@ sing_form.addEventListener("submit", function(event){
 
     }
     
+    xml.responseType = "document";
     xml.onreadystatechange = function (){
 
-        res = xml.res.getElementById("async_res_zone");
+        console.log(xml.response)    
+        res = xml.response.querySelector("#async_res_zone").innerHTML;
+        
 
-        if (res == "parametres_manquant"){
-
-            notif_zone.className = "";
-            notif_zone.classList.add("alert");
-            notif_zone.classList.add("alert-danger");
-            notif_zone.innerHTML = "Un paramètre est manquant pour votre inscription : mercid e remplir tout les champs nécessaire ou de contacter notre service technique.";
-            
-        } else if (res == "utilisateur_existe"){
+        if (res == "utilisateur_existe"){
 
             notif_zone.className = "";
             notif_zone.classList.add("alert");
             notif_zone.classList.add("alert-danger");
             notif_zone.innerHTML = "Enregistrement impossible : Un utilisateur avec cette email ou ce numéro de téléphone existe déjà";
             
-        } else if (res == 1 || res == true || res == "true"){
+        } else if (res == "parametres_manquant"){
+
+            notif_zone.className = "";
+            notif_zone.classList.add("alert");
+            notif_zone.classList.add("alert-danger");
+            notif_zone.innerHTML = "Un paramètre est manquant pour votre inscription : mercid e remplir tout les champs nécessaire ou de contacter notre service technique.";
+            
+        }  else if (res == 1 || res == true || res == "true"){
 
             notif_zone.className = "";
             notif_zone.classList.add("alert");

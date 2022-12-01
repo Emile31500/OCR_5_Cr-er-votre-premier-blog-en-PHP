@@ -58,7 +58,8 @@ send_message_form.addEventListener('submit', function(event){
     xml.onreadystatechange = function () {
 
         var res = xml.response.querySelector("#async_res_zone");
-
+        console.log(res);
+        
         if (res.innerHTML == 1 || res.innerHTML == true|| res.innerHTML == "true") {
 
             

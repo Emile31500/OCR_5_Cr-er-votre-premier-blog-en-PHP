@@ -29,11 +29,11 @@ class Messages extends Controller {
                 $this->model->array_value_request = $array;
                 $status = $this->model->insert();
                 
-                $this->render_page("messages", ["status" => $status]);
+                $this->render_page("envoyer", ["status" => $status]);
             
             } else {
 
-                $this->render_page("messages", ["status" => 'erreur']);
+                $this->render_page("envoyer", ["status" => 'erreur']);
 
             }
 

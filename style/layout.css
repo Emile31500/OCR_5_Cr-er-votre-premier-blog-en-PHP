@@ -29,7 +29,7 @@ main > .content{
 }
 
 footer {
-    margin: 25px 0px 0px 0px;
+    margin: 120px 0px 0px 0px;
     padding: 25px 0px 25px 0px;
 }
 
@@ -40,6 +40,13 @@ footer {
 
 .footer_list {
     list-style-type: none;
+}
+
+.alert {
+
+    min-height: 40px;
+    margin: 12px 0px 12px 0px;
+
 }
 
 
