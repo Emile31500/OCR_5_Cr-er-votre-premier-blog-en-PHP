@@ -69,7 +69,7 @@
        
         }
 
-        public function connection(){
+        public function connexion(){
 
             if (isset($_POST["login"]) && !empty($_POST["login"]) && 
             isset($_POST["password"]) && !empty($_POST["password"])) {
@@ -91,7 +91,7 @@
 
                     } else {
 
-                        $this->render_page("connexion", ["status" => "password_notok"]);
+                        $this->render_page("connexion", ["status" => array($user)]);
                         return false;
 
                     }

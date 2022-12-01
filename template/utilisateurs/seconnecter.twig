@@ -9,14 +9,14 @@
 
 {% block content%}
      <div class="section align-items-center">
-        <form id="login_form" method="post">
+        <form id="login_form" method="post" action="http://127.0.0.1/Projet%20OC5/utilisateurs/connexion">
             <div>
                 <div class="form-group">
-                    <label for="email">
+                    <label for="login">
                         Identifiant :
                     </label>
                     <br>
-                    <input placeholder="Adresse email ou numéro de téléphone" require type="email" id="email" value="emilearmengo@gmail.com" name="email"> 
+                    <input placeholder="Adresse email ou numéro de téléphone" value="emilearmengo@gmail.com" require type="text" id="login" name="login"> 
                 </div>
                 <div class="form-group">
                     <label for="password">
