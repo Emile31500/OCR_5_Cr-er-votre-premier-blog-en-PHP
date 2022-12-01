@@ -13,6 +13,14 @@ var xml = new XMLHttpRequest();
 var data;
 var res;
 
+function is_password_valid(str) {
+
+    contain_upper = /[A-Z]/.test(str);
+    contain_lower = /[a-z]/.test(str);
+    contain_numbers = /[0-9]/.test(str);
+
+    return (contain_lower && contain_numbers && contain_upper);
+}
 
 sing_form.addEventListener("submit", function(event){
 
@@ -69,7 +77,15 @@ sing_form.addEventListener("submit", function(event){
         notif_zone.innerHTML = "La longueur de votre mot de passe n'est pas valide : Il doit contenir entre 8 et 64 caractères";
         return false;
     
-    } 
+    } else if (is_password_valid(password.value)) {
+
+        notif_zone.className = "";
+        notif_zone.classList.add("alert");
+        notif_zone.classList.add("alert-warning");
+        notif_zone.innerHTML = "Votre mot de passe doit contenir au moins une majuscule, une minuscule et un chiffre";
+        return false;
+
+    }
     
     xml.onreadystatechange() = function() {
 
@@ -81,6 +97,13 @@ sing_form.addEventListener("submit", function(event){
             notif_zone.classList.add("alert");
             notif_zone.classList.add("alert-danger");
             notif_zone.innerHTML = "Votre inscription a bien été confirmé";
+            
+        } else if (res == "utilisateur_existe"){
+
+            notif_zone.className = "";
+            notif_zone.classList.add("alert");
+            notif_zone.classList.add("alert-danger");
+            notif_zone.innerHTML = "Enregistrement impossible : Un utilisateur avec cette email ou ce numéro de téléphone existe déjà";
             
         } else if (res == 1 || res == true || res == "true"){
 

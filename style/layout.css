@@ -73,7 +73,7 @@ a:hover{
 
 }
 
-input[type='text'], input[type='password'], input[type='date'], input[type='date'], input[type='email'], textarea {
+input[type='text'], input[type='tel'], input[type='password'], input[type='date'], input[type='date'], input[type='email'], textarea {
 
     width: 100%;
     margin: 12px 0px 12px 0px;

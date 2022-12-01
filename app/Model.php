@@ -52,9 +52,14 @@ abstract class Model {
     public function getBy(){
 
         $this->getConnection();
+        $array_selector_request = $this->array_selector_request;
+        $where = "";
+
         foreach ($array_selector_request as $selector){
 
-            $where = $where.array_keys($selector)."=".array_values($selector)." AND ";
+            $key = array_keys($selector);
+            $value = array_values($selector);
+            $where = $where.$key."='".$value."' AND ";
 
         }
 
@@ -99,6 +104,9 @@ abstract class Model {
     public function update(){
 
         $this->getConnection();
+        
+        $selector = "";
+        $value = "";
         
         foreach ($array_value_request as $value){
 
