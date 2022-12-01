@@ -1,7 +1,9 @@
 var login_form = document.getElementById("login_form");
 var login = document.getElementById("login");
+var notif_zone = document.getElementById("notif_zone")
 var password = document.getElementById("password");
 var xml = new XMLHttpRequest();
+xml.responseType = "document";
 var data;
 
 
@@ -10,19 +12,53 @@ login_form.addEventListener("submit", function(event){
     event.preventDefault();
     data = new FormData(this);
 
-    xml.responseType = "document";
+    
     xml.onreadystatechange = function(){
 
         var res = xml.response.querySelector("#async_res_zone").innerHTML;
+
         if (res == "password_ok"){
 
-            alert("Connexion ...");
+            notif_zone.className = "";
+            notif_zone.classList.add("alert");
+            notif_zone.classList.add("alert-success");
+            notif_zone.innerHTML = "Connexion ...";
+            return true;
+
+        } else if (res == "password_notok"){
+
+            notif_zone.className = "";
+            notif_zone.classList.add("alert");
+            notif_zone.classList.add("alert-danger");
+            notif_zone.innerHTML = "Votre mot de passe est incorrect";
+            return false;
+
+        } else if (res == "user_not_exist"){
+
+            notif_zone.className = "";
+            notif_zone.classList.add("alert");
+            notif_zone.classList.add("alert-danger");
+            notif_zone.innerHTML = "L'utilisateur que vous recherchez n'existe pas"
+            return false;
+
+        } else if (res == "miss_parameters"){
+
+            notif_zone.className = "";
+            notif_zone.classList.add("alert");
+            notif_zone.classList.add("alert-danger");
+            notif_zone.innerHTML = "Un paramètre est manquant pour votre inscription : merci de remplir tout les champs nécessaire ou de contacter notre service technique.";
+            return false;
 
         } else {
 
-            alert("ERREUR");
+            notif_zone.className = "";
+            notif_zone.classList.add("alert");
+            notif_zone.classList.add("alert-danger");
+            notif_zone.innerHTML = "Une erreur inconnu est survenu lors l'exécution de la requête";
+            return false;
 
         }
+        return false;
 
     }
 

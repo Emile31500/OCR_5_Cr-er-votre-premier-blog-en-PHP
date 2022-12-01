@@ -91,7 +91,7 @@
 
                     } else {
 
-                        $this->render_page("connexion", ["status" => array($user)]);
+                        $this->render_page("connexion", ["status" => "password_notok"]);
                         return false;
 
                     }
