@@ -77,6 +77,51 @@ class Administrateurs extends Controller {
         }
     }
 
+    public function connexion(){
+
+        if (isset($_POST["login"]) && !empty($_POST["login"]) && 
+        isset($_POST["password"]) && !empty($_POST["password"])) {
+            
+            $this->loadModel("Administrateur");
+            $this->model->table = "administrateurs";
+            $this->model->array_user_keys = [
+                                                "email" => $_POST["login"],
+                                                "telephone" => $_POST["login"]
+                                            ];
+            $admin = $this->model->is_admin_exist();
+
+            if ($admin) {
+
+                if(password_verify($_POST["password"], $admin["hash_mdp"])){
+
+                    $_SESSION["id_admin"] = $admin["id"];
+                    $this->render_page("connexion", ["res_query" => "password_ok"]);
+                    return true;
+
+                } else {
+
+                    $this->render_page("connexion", ["res_query" => "error_1"]);
+                    return false;
+
+                }
+                
+
+            } else {
+
+                $this->render_page("connexion", ["res_query" => "error_2"]); 
+                return false;
+
+            }
+
+        } else {
+
+            $this->render_page("connexion", ["res_query" => "error_3"]);
+            return false;
+
+        }
+        
+    }
+
 
 }
 

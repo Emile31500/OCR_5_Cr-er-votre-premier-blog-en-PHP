@@ -14,12 +14,21 @@
 
     }
 
+    if(isset($_SESSION["id_admin"]) && !empty($_SESSION["id_admin"])){
+
+        $id_admin = $_SESSION["id_admin"];
+
+    } else {
+
+        $id_admin = false;
+
+    }
+
     require_once(ROOT.'vendor/autoload.php');
     
     $loader = new Twig_loader_Filesystem(ROOT."template");
     $twig = new Twig_Environment($loader, [/*'cache' => ROOT."/tmp"*/]);
 
-    require_once(ROOT.'app/Session.php');
     require_once(ROOT.'app/Model.php');
     require_once(ROOT.'app/Controller.php');
     
@@ -55,7 +64,6 @@
             echo "La méthode ".$action." n'existe pas"; 
 
         }
-        
 
     } else{
 
