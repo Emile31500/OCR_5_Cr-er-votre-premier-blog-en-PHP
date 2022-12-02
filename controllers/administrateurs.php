@@ -1,5 +1,7 @@
 <?php
 
+
+
 class Administrateurs extends Controller {
 
 
@@ -12,6 +14,14 @@ class Administrateurs extends Controller {
     public function ajouter(){
 
         $this->render_page("ajouter", ["title" => "Nouvel administrateur "]);
+
+    }
+
+    public function dashbord(){
+
+       $this->render_page("dashbord", [
+                                        "title" => "Tableau de bord "
+                                    ]);
 
     }
 

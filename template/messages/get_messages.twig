@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div id="async_res_zone">
+            <table>
+                <tr>
+                    <th>
+                        Expéditeur
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Objet
+                    </th>
+                    <th>
+                        Message
+                    </th>
+                </tr>
+                {% for message in messages %}
+                    <tr>
+                        <td>
+                            {{message.nom}} {{message.prenom}}
+                        </td>
+                        <td>
+                            {{message.email}}
+                        </td>
+                        <td>
+                            {{message.objet}}
+                        </td>
+                        <td>
+                            {{message.message}}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    <body>
+</html>

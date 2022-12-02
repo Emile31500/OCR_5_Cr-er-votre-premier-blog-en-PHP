@@ -36,12 +36,16 @@ class Messages extends Controller {
                 $this->render_page("envoyer", ["status" => 'erreur']);
 
             }
-
-
-        
-
     }
 
+    public function get_messages(){
+
+        $this->loadModel("Message");
+        $this->model->table = "messages";
+        $messages = $this->model->getAll();
+
+        $this->render_page("get_messages", ["messages" => $messages]);       
+    }
 
 }
 
