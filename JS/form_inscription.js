@@ -86,8 +86,7 @@ sing_form.addEventListener("submit", function(event){
     
     xml.responseType = "document";
     xml.onreadystatechange = function (){
-
-        console.log(xml.response)    
+ 
         res = xml.response.querySelector("#async_res_zone").innerHTML;
         
 
@@ -97,28 +96,32 @@ sing_form.addEventListener("submit", function(event){
             notif_zone.classList.add("alert");
             notif_zone.classList.add("alert-danger");
             notif_zone.innerHTML = "Enregistrement impossible : Un utilisateur avec cette email ou ce numéro de téléphone existe déjà";
-            
+            return false;
+
         } else if (res == "parametres_manquant"){
 
             notif_zone.className = "";
             notif_zone.classList.add("alert");
             notif_zone.classList.add("alert-danger");
             notif_zone.innerHTML = "Un paramètre est manquant pour votre inscription : mercid e remplir tout les champs nécessaire ou de contacter notre service technique.";
-            
+            return false;
+
         }  else if (res == 1 || res == true || res == "true"){
 
             notif_zone.className = "";
             notif_zone.classList.add("alert");
             notif_zone.classList.add("alert-success");
             notif_zone.innerHTML = "Votre inscription a bien été confirmé";
-            
+            return true;
+
         } else {
     
             notif_zone.className = "";
             notif_zone.classList.add("alert");
             notif_zone.classList.add("alert-danger");
             notif_zone.innerHTML = "Une erreur inconnu est survenu lors l'exécution de la requête";
-    
+            return false;
+
         }
     
 

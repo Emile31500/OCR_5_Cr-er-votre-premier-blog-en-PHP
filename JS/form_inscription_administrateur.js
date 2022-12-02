@@ -2,26 +2,32 @@ var sing_form = document.getElementById("admin_sing_form");
 var notif_zone = document.getElementById("notif_zone");
 var nom = document.getElementById("name");
 var firstname = document.getElementById("firstname");
-var user_name = document.getElementById("user_name")
 var email = document.getElementById("email");
 var password = document.getElementById("password");
 var confirm_password = document.getElementById("confirm_password");
 
 var xml = new XMLHttpRequest();
+xml.responseType = "document";
 var data;
 var res;
 
 function is_password_valid(pswd, pswd_conf) {
 
-    spe_carac = /^[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/;
     contain_upper = /[A-Z]/.test(pswd);
     contain_lower = /[a-z]/.test(pswd);
     contain_numbers = /[0-9]/.test(pswd);
-    contain_spe_carac = spe_carac.test(pswd);
+    contain_spe_carac = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(pswd);
     pswd_equal = (pswd == pswd_conf);
-    lenght = pswd.lenght >= 16 && pswd.lenght < 64;
+    length = pswd.length >= 16 && pswd.length < 64;
 
-    return (contain_lower && contain_numbers && contain_upper && lenght && pswd_equal && contain_spe_carac);
+    console.log(" 1 " +contain_lower)
+    console.log(" 2 " +contain_numbers)
+    console.log(" 3 " +contain_upper)
+    console.log(" 6 " +contain_spe_carac)
+    console.log(" 4 " +length)
+    console.log(" 5 " +pswd_equal) 
+
+    return (contain_lower && contain_numbers && contain_upper && length && pswd_equal && contain_spe_carac);
 
 }
 
@@ -62,7 +68,7 @@ sing_form.addEventListener("submit", function(event){
         notif_zone.innerHTML = "Le nom d'utilisateur ne doit pas contenir plus de 32 caractères";
         return false;
     
-    } else if (is_password_valid(password.value) == false) {
+    } else if (is_password_valid(password.value, confirm_password.value) == false) {
 
         notif_zone.className = "";
         notif_zone.classList.add("alert");
@@ -72,13 +78,13 @@ sing_form.addEventListener("submit", function(event){
 
     }
     
-    xml.responseType = "document";
+
     xml.onreadystatechange = function (){
 
         console.log(xml.response)    
         res = xml.response.querySelector("#async_res_zone").innerHTML;
 
-       if (res == "password_ok"){
+       if (res == "singed"){
 
             notif_zone.className = "";
             notif_zone.classList.add("alert");
