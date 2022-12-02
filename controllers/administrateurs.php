@@ -9,6 +9,12 @@ class Administrateurs extends Controller {
 
     }
 
+    public function ajouter(){
+
+        $this->render_page("ajouter", ["title" => "Nouvel administrateur "]);
+
+    }
+
 
 }
 
