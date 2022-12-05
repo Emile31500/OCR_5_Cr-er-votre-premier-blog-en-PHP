@@ -67,6 +67,7 @@ send_message_form.addEventListener('submit', function(event){
             alert_zone.classList.add("alert");
             alert_zone.classList.add("alert-success");
             alert_zone.innerHTML = "Le message a été envoyé avec succsés !";
+            return true;
 
         } else if (res.innerHTML == "erreur") {
 
@@ -74,6 +75,7 @@ send_message_form.addEventListener('submit', function(event){
             alert_zone.classList.add("alert");
             alert_zone.classList.add("alert-danger");
             alert_zone.innerHTML = "Erreur : Une ou des informations ont été perdu ou non renseigné dans la requête";
+            return false;
         
         } else {
 
@@ -82,6 +84,7 @@ send_message_form.addEventListener('submit', function(event){
             alert_zone.classList.add("alert");
             alert_zone.classList.add("alert-danger");
             alert_zone.innerHTML = "Erreur : Une erreur est survenue à l'envoie du message";
+            return false;
 
         }
 

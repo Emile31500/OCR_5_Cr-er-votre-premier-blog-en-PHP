@@ -88,6 +88,7 @@ abstract class Model {
 
         foreach ($array_values as $array_value){
 
+            $array_value = str_replace('\'', "\\'", $array_value);
             $values = $values."'".$array_value."', ";
 
         }

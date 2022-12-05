@@ -9,6 +9,8 @@ class Messages extends Controller {
             isset($_POST["message"]) && !empty($_POST["message"]) &&
             isset($_POST["email"]) && !empty($_POST["email"])) {
 
+                $date_send = date("Y-m-d h:i:s");
+
                 if(isset($_POST["objet"]) && !empty($_POST["objet"])){
 
                     $objet = $_POST['objet'];
@@ -19,6 +21,7 @@ class Messages extends Controller {
                     "nom" => $_POST["name"],
                     "prenom" => $_POST["firstname"],
                     "message" => $_POST["message"],
+                    "date_envoie" => $date_send,
                     "email" => $_POST["email"],
                     "objet" => $objet,
                     "est_supprimer" => 0

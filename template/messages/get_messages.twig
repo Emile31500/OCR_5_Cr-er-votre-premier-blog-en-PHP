@@ -4,37 +4,53 @@
     </head>
     <body>
         <div id="async_res_zone">
-            <table>
-                <tr>
-                    <th>
-                        Expéditeur
-                    </th>
-                    <th>
-                        Email
-                    </th>
-                    <th>
-                        Objet
-                    </th>
-                    <th>
-                        Message
-                    </th>
-                </tr>
-                {% for message in messages %}
+            <table class="table">
+                <thead>
+                    <tr class="table-primary">
+                        <th scope="col">
+                            #
+                        </th>
+                       <th scope="col">
+                            Expéditeur
+                        </th>
+                        <th scope="col">
+                            Email
+                        </th>
+                        <th scopre="col">
+                            Date d'envoie
+                        </th>
+                        <th scope="col">
+                            Objet
+                        </th>
+                        <th scope="col">
+                            Message
+                        </th>
                     <tr>
-                        <td>
-                            {{message.nom}} {{message.prenom}}
-                        </td>
-                        <td>
-                            {{message.email}}
-                        </td>
-                        <td>
-                            {{message.objet}}
-                        </td>
-                        <td>
-                            {{message.message}}
-                        </td>
-                    </tr>
-                {% endfor %}
+                </thead>
+                <tbody>
+                    {% for message in messages %}
+                        <tr>
+                            <th scopre="row">
+                                {{ loop.index }}
+                            </th>
+                            <td>
+                                {{message.nom}} {{message.prenom}}
+                            </td>
+                            <td>
+                                <a href="mailto:{{message.email}}">{{message.email}}</a>
+                            </td>
+                            <td>
+                                {{message.date_envoie}}
+                            </td>
+                            <td>
+                                {{message.objet}}
+                            </td>
+                            <td>
+                                {{message.message}}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
             </table>
         </div>
     <body>

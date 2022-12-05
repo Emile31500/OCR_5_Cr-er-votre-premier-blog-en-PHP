@@ -6,7 +6,7 @@
 
         public function __construct(){
 
-            $this->table = "utilisateurs";
+            $this->table = "administrateurs";
             $this->getConnection();
             
         }
