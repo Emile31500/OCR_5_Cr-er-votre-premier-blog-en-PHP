@@ -1,18 +1,7 @@
 <?php
     //Constance chemin 
     define('ROOT', str_replace('index.php', "", $_SERVER['SCRIPT_FILENAME']));
-    
-                            
     session_start();
-    if(isset($_SESSION["id_user"]) && !empty($_SESSION["id_user"])){
-
-        $id_user = $_SESSION["id_user"];
-
-    } else {
-
-        $id_user = false;
-
-    }
 
     if(isset($_SESSION["id_admin"]) && !empty($_SESSION["id_admin"])){
 
@@ -25,7 +14,9 @@
     }
 
     require_once(ROOT.'vendor/autoload.php');
-    
+
+
+
     $loader = new Twig_loader_Filesystem(ROOT."template");
     $twig = new Twig_Environment($loader, [/*'cache' => ROOT."/tmp"*/]);
 

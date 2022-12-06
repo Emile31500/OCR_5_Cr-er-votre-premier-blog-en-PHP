@@ -100,6 +100,7 @@ abstract class Model {
         $query = $this->connexion->prepare($request);
         $status = $query->execute();
         return $status;
+        
     }
 
     public function update(){

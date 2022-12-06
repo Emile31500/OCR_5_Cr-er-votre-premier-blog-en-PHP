@@ -1,6 +1,6 @@
 <?php
 
-
+use \EditorJS\EditorJS;
 
 class Administrateurs extends Controller {
 
@@ -13,78 +13,96 @@ class Administrateurs extends Controller {
 
     public function ajouter(){
 
-        $this->render_page("ajouter", ["title" => "Nouvel administrateur "]);
+        if ($_SESSION["id_admin"] != false ){
+
+            $this->render_page("ajouter", ["title" => "Nouvel administrateur "]);
+        
+        } else {
+
+            header("location:http://127.0.0.1/Projet%20OC5/accueil/index");
+        }
 
     }
 
     public function dashbord(){
+        
 
-       $this->render_page("dashbord", [
-                                        "title" => "Tableau de bord "
-                                    ]);
+        if (isset($_SESSION["id_admin"]) || !empty($_SESSION["id_admin"])){
+
+            $this->render_page("dashbord", [
+                "title" => "Tableau de bord "
+            ]);
+
+        } else {
+            
+            header("location:http://127.0.0.1/Projet%20OC5/accueil/index");
+        
+        }
+        
+       
 
     }
 
     public function nouveau(){
-
+    
         if (isset($_POST["name"]) && !empty($_POST["name"]) &&
-        isset($_POST["firstname"]) && !empty($_POST["firstname"]) &&
-        isset($_POST["email"]) && !empty($_POST["email"]) &&
-        isset($_POST["phone_number"]) && !empty($_POST["phone_number"]) &&
-        isset($_POST["password"]) && !empty($_POST["password"]) &&
-        isset($_POST["confirm_password"]) && !empty($_POST["confirm_password"])){
+            isset($_POST["firstname"]) && !empty($_POST["firstname"]) &&
+            isset($_POST["email"]) && !empty($_POST["email"]) &&
+            isset($_POST["phone_number"]) && !empty($_POST["phone_number"]) &&
+            isset($_POST["password"]) && !empty($_POST["password"]) &&
+            isset($_POST["confirm_password"]) && !empty($_POST["confirm_password"])){
 
-                $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
+                    $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-                $date_enregistrement = date("Y-m-d");
-                $array_selector = [
-                                    "email" => $_POST['email'],
-                                    "telephone" => $_POST["phone_number"]
-                                ];
+                    $date_enregistrement = date("Y-m-d");
+                    $array_selector = [
+                                        "email" => $_POST['email'],
+                                        "telephone" => $_POST["phone_number"]
+                                    ];
 
 
-                $array = [
-                    "nom" => $_POST["name"],
-                    "prenom" => $_POST["firstname"],
-                    "email" => $_POST["email"],
-                    "telephone" => $_POST["phone_number"],
-                    "hash_mdp" => $password_hash,
-                    "date_enregistrement" => $date_enregistrement
+                    $array = [
+                        "nom" => $_POST["name"],
+                        "prenom" => $_POST["firstname"],
+                        "email" => $_POST["email"],
+                        "telephone" => $_POST["phone_number"],
+                        "hash_mdp" => $password_hash,
+                        "date_enregistrement" => $date_enregistrement
 
-                ];
-                
-                $this->loadModel("Administrateur");
-                $this->model->table = "administrateurs";
-                $this->model->array_user_keys = $array_selector;
-                $this->model->array_value_request = $array;
-                $admin_exist = $this->model->is_admin_exist();
-                
-                if ($admin_exist){
+                    ];
+                    
+                    $this->loadModel("Administrateur");
+                    $this->model->table = "administrateurs";
+                    $this->model->array_user_keys = $array_selector;
+                    $this->model->array_value_request = $array;
+                    $admin_exist = $this->model->is_admin_exist();
+                    
+                    if ($admin_exist){
 
-                    $this->render_page("nouveau", ["res_query" => "error_1"]);
-                    return true;
+                        $this->render_page("nouveau", ["res_query" => "error_1"]);
+                        return true;
 
-                }
+                    }
 
-                $status = $this->model->insert();
+                    $status = $this->model->insert();
 
-                if ($status) {
+                    if ($status) {
 
-                    $this->render_page("nouveau", ["res_query" => "singed"]);
-                    return true;
+                        $this->render_page("nouveau", ["res_query" => "singed"]);
+                        return true;
 
-                } else {
+                    } else {
 
-                    return false;
+                        return false;
 
-                }
-                
+                    }
+                    
 
-        } else {
+            } else {
 
-            $this->render_page("nouveau", ["res_query" => "error_2"]);
+                $this->render_page("nouveau", ["res_query" => "error_2"]);
 
-        }
+            }
     }
 
     public function connexion(){

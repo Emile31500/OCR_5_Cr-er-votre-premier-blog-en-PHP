@@ -22,6 +22,11 @@ h2 {
 
 }
 
+.h3 {
+    padding: 25px 0px 25px 0px;
+    margin: 25px 0px 25px 0px;
+}
+
 main > .content{
 
     margin: 25px 0px 25px 0px;
@@ -57,10 +62,6 @@ footer {
 
 }
 
-a:hover{
-    color: white;
-}
-
 .collapse.show {
     visibility: visible;
 }
@@ -93,10 +94,10 @@ input[type='submit'] {
 
 }
 
-form {
+/*form {
 
     max-width: 800px;
-}
+}*/
 
 @media screen and (max-width: 995px) {
 
