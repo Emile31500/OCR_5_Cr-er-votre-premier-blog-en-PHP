@@ -8,11 +8,23 @@
     <h3 class="h3"> Messages </h3>
     <div id="messages_list"></div>
     <h3 class="h3"> Articles </h3>
+    <a href="http://127.0.0.1/Projet%20OC5/articles/nouveau"><button type="button" class="btn btn-success"> + </button></a>
+    <button type="button" class="btn btn-danger"> x </button>
+    <div id="articles_list"></div> 
+    <style> 
+    .article_image{
+        
+        height: 150px;
+        width: 285px; 
+        object-fit: cover;
+        object-position: center;
 
-        <a href="http://127.0.0.1/Projet%20OC5/articles/nouveau"><button type="button" class="btn btn-success"> + </button></a>
-        <button type="button" class="btn btn-danger"> x </button>
+    }
+        
 
-
-           
+</style>       
 {% endblock %}
-{% block javascript_link %}<script src="http://127.0.0.1/Projet%20OC5/JS/get_messages.js"></script>{% endblock %}
+{% block javascript_link %}
+    <script src="http://127.0.0.1/Projet%20OC5/JS/get_messages.js"></script>
+    <script src="http://127.0.0.1/Projet%20OC5/JS/get_articles_admin.js"></script>
+{% endblock %}

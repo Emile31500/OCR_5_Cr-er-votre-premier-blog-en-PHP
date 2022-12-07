@@ -9,6 +9,26 @@ class Articles extends Controller {
 
     }
 
+    public function list_admin(){
+
+        if ($_SESSION["id_admin"] != false ){
+
+            $array_selector = array("id_redacteur" => $_SESSION["id_admin"]);
+
+            $this->loadModel("Article");
+            $this->model->table = "articles";
+            $this->model->array_selector_request = $array_selector;
+            $res = $this->model->get_list_admin();
+    
+            $this->render_page("list_admin", ["articles" => $res]);
+            return true;
+
+        }
+
+       
+
+    }
+
     public function lire(){
 
         $this->render_page("index", ["title" => "Voilà."]);
@@ -39,15 +59,16 @@ class Articles extends Controller {
                 isset($_POST["title_article"]) && !empty($_POST["title_article"]) &&  
                 isset($_FILES["title_image"]) && !empty($_FILES["title_image"])){
 
-                    $image_name = $_FILES["title_image"]["name"];
+                    $image_name = $_FILES["title_image"]["tmp_name"];
                     $image_size = $_FILES["title_image"]["size"];
                     $image_max_size = 1024^2;
 
                     if($image_size > $image_max_size) {
 
                         $random_image_name = uniqid();
+                        $random_image_name .= ".png";
 
-                        move_uploaded_file($image_name, "media/image/article_image".$random_image_name);
+                        move_uploaded_file($image_name, "media/image/article_image/".$random_image_name);
                         $date = date("Y-m-d h:i:s");
 
                         $array_values = [
