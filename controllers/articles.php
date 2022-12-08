@@ -1,11 +1,36 @@
 <?php
-
 class Articles extends Controller {
 
 
     public function liste(){
 
         $this->render_page("index", ["title" => "Articles "]);
+
+    }
+
+    public function editer(){
+        
+        global $params;
+
+        if (isset($params[2]) && !empty($params[2]) && 
+            isset($_SESSION["id_admin"]) && !empty($_SESSION["id_admin"])){
+
+            $this->loadModel("Article");
+            $this->model->table = "articles";
+            $this->model->id = $params[2];
+            $res = $this->model->getOne();
+
+
+            $this->render_page("editer", ["title" => $res['libelle'],
+                                        "article" => $res]);
+            return true;
+
+        } else {
+
+            header("lcoation:http://127.0.0.1/Projet%20OC5/accueil/index");
+            return false;
+
+        }            
 
     }
 
@@ -41,10 +66,12 @@ class Articles extends Controller {
 
             
             $this->render_page("nouveau", ["title" => "Créer un nouveau article : "]);
+            return true;
 
         } else {
 
             header("location:http://127.0.0.1/Projet%20OC5/accueil/index");
+            return false;
 
         }
 
@@ -86,10 +113,12 @@ class Articles extends Controller {
                         $status = $this->model->insert();
                         
                         $this->render_page("ajout", ["status" => $status]);
+                        return true;
 
                     } else {
 
                         $this->render_page("ajout", ["status" => "error_1"]);
+                        return false;
 
                     }     
 
@@ -97,13 +126,14 @@ class Articles extends Controller {
 
                 
                 $this->render_page("ajout", ["status" => "error_2"]);
+                return false;
 
             }
 
        /* } else {
 
             header("location:http://127.0.0.1/Projet%20OC5/accueil/index");
-
+            return false;
         }*/
     
     }
