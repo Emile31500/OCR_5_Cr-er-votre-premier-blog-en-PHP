@@ -7,7 +7,7 @@
     <div id="async_res_zone">
         {% for article in articles %}
             <div class="row">
-                    <img style="margin:0; padding: 0px;" class="article_image rounded-start" src="http://127.0.0.1/Projet%20OC5/media/image/article_image/{{article.image}}"/>
+                <img style="margin:0; padding: 0px;" class="article_image rounded-start" src="http://127.0.0.1/Projet%20OC5/media/image/article_image/{{article.image}}"/>
                 <div style="margin:0; padding-bottom: 0px; position: relative;" class="col-9 border border-light rounded-end">
                     <h4>{{article.libelle}}</h4>
                     
@@ -20,21 +20,19 @@
                             right: 0;
                             margin: auto;
                             "> 
-                                <div class="btn-group me-2 float-end" role="group" aria-label="First group">
-                                    <button type="button" class="btn border border-danger"> x </button>
-                                    <a href="http://127.0.0.1/Projet%20OC5/articles/editer/{{article.id}}"><button type="button" class="btn border border-info"> Editer </button></a>
-                                    <button type="button" class="btn border border-success"> Publier </button>
-                                </div>
-    <div class="float-start">    
+                            <div class="btn-group me-2 float-end" role="group" aria-label="First group">
+                                <button type="button" article="{{article.id}}" class="supp_link btn border border-danger"> x </button>
+                                <a href="http://127.0.0.1/Projet%20OC5/articles/editer/{{article.id}}"><button type="button" class="btn border border-info"> Editer </button></a>
+                                <button type="button" class="btn border border-success"> Publier </button>
+                            </div>
+                            <div class="float-start">    
                                 Rédigé le  <span class="fst-italic">"{{article.date_enregistrement|replace({"-": " "})}} 
                                 {% if article.date_enregistrement != article.date_derniere_modification %}
                                     {{article.date_derniere_modification}}
                                 {% endif %}"</span> par {{article.prenom}} {{article.nom}} 
-      </div>                      
+                            </div>                      
                                 
                     </div>
-
-                  
                 </div>     
             </div>
         {% endfor %}
