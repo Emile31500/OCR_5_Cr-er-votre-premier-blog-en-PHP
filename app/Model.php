@@ -6,8 +6,8 @@ abstract class Model {
     private $user = "root";
     private $password = "";
     
-    public $array_selector_request;
-    public $array_value_request;
+    public $array_selector_request = [ ];
+    public $array_value_request = [];
 
     public $table = "";
     public $id = "";
@@ -52,19 +52,17 @@ abstract class Model {
     public function getBy(){
 
         $this->getConnection();
-        $array_selector_request = $this->array_selector_request;
+        $keys = array_keys($this->array_selector_request);
+        $values = array_values($this->array_selector_request);
         $where = "";
-        
-        foreach ($array_selector_request as $selector){
 
-            $key = array_keys($selector);
-            $value = array_values($selector);
-            $where = $where.$key."='".$value."' AND ";
+        for ($i=0; $i < sizeof($keys); $i++) {
 
-        }   
+            $where = $where.$keys[$i]."='".$values[$i]."' AND ";
+
+        }
         
         $where = substr($where, 0, -5);
-
         $request = "SELECT * FROM ".$this->table." WHERE ".$where;
         $query = $this->connexion->prepare($request);
         $query->execute();

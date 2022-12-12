@@ -4,7 +4,11 @@ class Articles extends Controller {
 
     public function liste(){
 
-        $this->render_page("index", ["title" => "Articles "]);
+        $this->loadModel("Article");
+        $this->model->table = "articles";
+        $result = $this->model->get_list();
+        $this->render_page("liste", ["title" => "Articles ",
+                                    "articles" => $result]);
 
     }
 
@@ -131,7 +135,20 @@ class Articles extends Controller {
 
     public function lire(){
 
-        $this->render_page("index", ["title" => "Voilà."]);
+        global $params;
+
+        if (isset($params[2]) && !empty($params[2])){
+
+            $this->loadModel("Article");
+            $this->model->id = $params[2];
+            $this->model->table = "articles";
+            $res = $this->model->lire();
+
+            $this->render_page("lire", ["title" => $res["libelle"],
+                                        "article" => $res]);
+            return true;
+        
+        }
 
     }
 

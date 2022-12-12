@@ -1,0 +1,48 @@
+{% extends "layout.twig" %}
+{% block title %}
+    {{title}}
+{% endblock %}
+{% block style_sheet %}
+        <link href="http://127.0.0.1/Projet%20OC5/style/article/liste.css" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+
+    <div class="card-group">
+
+    {% for article in articles %}
+
+        {% if (loop.index %2 == 0)  %}
+
+            <div class="card-group">
+
+        {% endif %}
+
+        <div class="card text-center">
+            <div class="card-header">
+                Par {{article.nom}} {{article.prenom}}
+            </div>
+            <div class="card-body">
+                <img class="card-img-top" src="http://127.0.0.1/Projet%20OC5/media/image/article_image/{{article.image}}" />
+
+                <a class="h3" href="http://127.0.0.1/Projet%20OC5/articles/lire/{{article.id}}" >
+                    <h3 class="card-title">{{article.libelle}}</h3>
+                </a>
+            </div>
+            <div class="card-footer text-muted">
+                {{article.date_derniere_modification|replace({" ":" à ", "-":" "})}}
+            </div>
+        </div>
+
+        {% if (loop.index %2 == 1) %}
+
+            </div>
+            
+        {% endif %}
+
+    {% endfor %}
+
+{% endblock %}
+
+{% block javascript_link %}
+{% endblock %}

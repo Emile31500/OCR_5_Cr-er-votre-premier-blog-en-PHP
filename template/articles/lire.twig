@@ -1,0 +1,16 @@
+{% extends "layout.twig" %}
+{% block style_sheet %}
+    <link href="http://127.0.0.1/Projet%20OC5/style/article/lire_article.css" rel="stylesheet"/>
+{% endblock %}
+{% block content %}
+    <div class="article_zone">
+        <img src="http://127.0.0.1/Projet%20OC5/media/image/article_image/{{article.image}}"/>
+        <h3 class="h2">{{article.libelle}}</h3>
+        {{article.article|raw}}
+        <div class="border-top">
+            <small> Publié le {{article.date_derniere_modification}} par {{article.nom}} {{article.prenom}} </small>
+        </div>
+    <div>
+{% endblock %}
+{% block javascript_link %}
+{% endblock %}
