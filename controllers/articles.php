@@ -159,6 +159,31 @@ class Articles extends Controller {
 
     } 
 
+    public function publier(){
+
+        global $params;
+
+        if (isset($params[2]) && !empty($params[2]) && 
+        isset($_SESSION["id_admin"]) && !empty($_SESSION["id_admin"])) {
+
+            $this->loadModel("Article");
+            $this->model->id = $params[2];
+            $this->model->table = "articles";
+            $this->model->array_value_request = ["est_publier" => 1];
+            $status = $this->model->updateOne();
+
+            $this->render_page("publier", ["status" => $status]);
+            return false;    
+
+        } else {
+
+            header("location:http://127.0.0.1/Projet%20OC5/accueil/index");
+            return false;
+
+        }
+
+    } 
+
     public function nouveau(){
 
         if ($_SESSION["id_admin"] != false ){

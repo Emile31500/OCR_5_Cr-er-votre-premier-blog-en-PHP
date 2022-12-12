@@ -23,7 +23,7 @@
                             <div class="btn-group me-2 float-end" role="group" aria-label="First group">
                                 <button type="button" article="{{article.id}}" class="supp_link btn border border-danger"> x </button>
                                 <a href="http://127.0.0.1/Projet%20OC5/articles/editer/{{article.id}}"><button type="button" class="btn border border-info"> Editer </button></a>
-                                <button type="button" class="btn border border-success"> Publier </button>
+                                <button type="button" article="{{article.id}}" class="pub_link btn border border-success"> Publier </button>
                             </div>
                             <div class="float-start">    
                                 Rédigé le  <span class="fst-italic">"{{article.date_enregistrement|replace({" ": " à ","-": " "})}} 
