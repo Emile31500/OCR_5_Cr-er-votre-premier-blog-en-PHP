@@ -26,9 +26,9 @@
                                 <button type="button" class="btn border border-success"> Publier </button>
                             </div>
                             <div class="float-start">    
-                                Rédigé le  <span class="fst-italic">"{{article.date_enregistrement|replace({"-": " "})}} 
+                                Rédigé le  <span class="fst-italic">"{{article.date_enregistrement|replace({" ": " à ","-": " "})}} 
                                 {% if article.date_enregistrement != article.date_derniere_modification %}
-                                    {{article.date_derniere_modification}}
+                                    et édité le {{article.date_derniere_modification|replace({" ": " à ","-": " "})}}
                                 {% endif %}"</span> par {{article.prenom}} {{article.nom}} 
                             </div>                      
                                 

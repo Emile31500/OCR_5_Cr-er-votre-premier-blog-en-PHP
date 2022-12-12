@@ -131,6 +131,27 @@ abstract class Model {
         return $query->execute();
     }
 
+    public function updateOne(){
+
+        $this->getConnection();
+        $keys = array_keys($this->array_value_request);
+        $values = array_values($this->array_value_request);
+        $value_to_update = "";
+
+        for ($i=0; $i < sizeof($keys); $i++) { 
+            
+            $value_to_update = "`".$keys[$i]."`='".$values[$i]."', ";
+
+        }
+
+        $value_to_update  = substr($value_to_update , 0, -2);
+
+        $request = "UPDATE ".$this->table." SET ".$value_to_update." WHERE id=".$this->id;
+        $query = $this->connexion->prepare($request);
+        return $query->execute();
+
+    }
+
 }
 
 
