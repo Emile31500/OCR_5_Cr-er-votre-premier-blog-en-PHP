@@ -6,6 +6,17 @@ header > div > div > div > .icon {
 
 }
 
+.comment{
+
+    margin: 16px 0px 16px 0px;
+
+}
+
+.comment-message{
+
+    padding: 4px 0px 4px 0px;
+}
+
 h1 {
     padding: 60px 0px 0px 0px; 
     font-family: Baskerville, Baskerville Old Face, Hoefler Text, Garamond, Times New Roman, serif; 
