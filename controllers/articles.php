@@ -4,11 +4,13 @@ class Articles extends Controller {
 
     public function liste(){
 
+        $user =  $this->is_user_connected();
         $this->loadModel("Article");
         $this->model->table = "articles";
         $result = $this->model->get_list();
         $this->render_page("liste", ["title" => "Articles ",
-                                    "articles" => $result]);
+                                    "articles" => $result,
+                                    "user" => $user]);
 
     }
 
@@ -139,13 +141,15 @@ class Articles extends Controller {
 
         if (isset($params[2]) && !empty($params[2])){
 
+            $user =  $this->is_user_connected();
             $this->loadModel("Article");
             $this->model->id = $params[2];
             $this->model->table = "articles";
             $res = $this->model->lire();
 
             $this->render_page("lire", ["title" => $res["libelle"],
-                                        "article" => $res]);
+                                        "article" => $res,
+                                        "user" => $user]);
             return true;
         
         }

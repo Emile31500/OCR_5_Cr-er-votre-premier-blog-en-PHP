@@ -42,21 +42,33 @@
 
         }
 
-        require_once(ROOT.'controllers/'.$controller.'.php');
-        $controller = new $controller();
+        if(file_exists(ROOT.'controllers/'.$controller.'.php')){
 
-        if (method_exists($controller, $action)){
+            require_once(ROOT.'controllers/'.$controller.'.php');
+            $controller = new $controller();
 
-            $controller->$action();
+            if (method_exists($controller, $action)){
+
+                $controller->$action();
+    
+            } else {
+    
+                http_response_code(404);
+                echo $twig->render("404.twig");
+
+            }
 
         } else {
 
             http_response_code(404);
-            echo "La méthode ".$action." n'existe pas"; 
-
+            echo $twig->render("404.twig");
+            
         }
-
+    
     } else{
+
+        http_response_code(404);
+        echo $twig->render("404.twig");
 
     }
 

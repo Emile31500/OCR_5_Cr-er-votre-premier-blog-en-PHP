@@ -5,7 +5,10 @@
 {% block style_sheet %}
         <link href="http://127.0.0.1/Projet%20OC5/style/article/liste.css" rel="stylesheet"/>
 {% endblock %}
-
+{% block identification %}
+    <a href="http://127.0.0.1/Projet%20OC5/utilisateurs/seconnecter" class="btn btn-light"> Se connecter</a>
+    <a href="http://127.0.0.1/Projet%20OC5/utilisateurs/sinscrire" class="btn btn-dark"> S'inscrire </a>
+{% endblock %}
 {% block content %}
 
     {% for article in articles %}

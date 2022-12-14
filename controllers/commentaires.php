@@ -23,8 +23,8 @@ class Commentaires extends Controller
 
         } else {
 
-            header("location:http://127.0.0.1/Projet%20OC5/accueil/index");
-
+            $this->render_page("envoyer", ["status"=> "error_1"]);
+        
         }
 
     }

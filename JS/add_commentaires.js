@@ -19,8 +19,17 @@ form_post_commentaire.addEventListener("submit", function (event) {
     } else {
 
         add_com.onreadystatechange = function (){
+            
+            console.log(add_com.response);
 
-            if (add_com.response.querySelector("#async_res_zone").innerHTML == true){
+            if (add_com.response.querySelector("#async_res_zone").innerHTML == "error_1"){
+
+                alert_zone.className = "";
+                alert_zone.className = "alert alert-warning";
+                alert_zone.innerHTML = "Attention : vous devez vous connecter pour pouvoir poster un commentaire";
+                return false;
+
+            } if (add_com.response.querySelector("#async_res_zone").innerHTML == true){
 
                 alert_zone.className = "";
                 alert_zone.classList.add("alert");

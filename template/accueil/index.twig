@@ -1,15 +1,26 @@
 {% extends 'layout.twig' %}
-
 {% block title %}
     {{title}}
 {% endblock %}
-
 {% block style_sheet %}
     <link href="http://127.0.0.1/Projet%20OC5/style/accueil.css" rel="stylesheet"/>
-{% endblock %}
+{% endblock %}  
+{% block identification %}
 
-{% block content%}
+    {% if user.nom is defined %}
+
+        <span class="fs-5 text-light text-center">{{user.prenom}} {{user.nom }}</span><br>
+        <a href="http://127.0.0.1/Projet%20OC5/utilisateurs/sedeconnecter" id="btn-sedeconnecter" class="btn btn-light text-center"> Se déconntecter </a>
+
+    {% else %}
+        
+        <a href="http://127.0.0.1/Projet%20OC5/utilisateurs/seconnecter" class="btn btn-light"> Se connecter</a>
+        <a href="http://127.0.0.1/Projet%20OC5/utilisateurs/sinscrire" class="btn btn-dark"> S'inscrire </a>
     
+    {% endif %}
+
+{% endblock %}
+{% block content%}
     <div class="section">
         <div class="row">
             <div class="text-center align-items-centergit col col-sm-3 col-4">
