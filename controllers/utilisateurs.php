@@ -104,6 +104,7 @@
                     if(password_verify($_POST["password"], $user["hash_mdp"])){
 
                         $_SESSION["id_user"] = $user["id"];
+                        unset($_SESSION["id_admin"]);
                         $this->render_page("connexion", ["status" => "password_ok"]);
 
                         return true;

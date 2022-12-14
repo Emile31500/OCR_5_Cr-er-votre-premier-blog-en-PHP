@@ -123,6 +123,7 @@ class Administrateurs extends Controller {
                 if(password_verify($_POST["password"], $admin["hash_mdp"])){
 
                     $_SESSION["id_admin"] = $admin["id"];
+                    unset($_SESSION["id_user"]);
                     $this->render_page("connexion", ["res_query" => "password_ok"]);
                     return true;
 
