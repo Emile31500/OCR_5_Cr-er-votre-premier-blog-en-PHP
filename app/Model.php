@@ -32,10 +32,12 @@ abstract class Model {
     public function getAll(){
 
         $this->getConnection();
-        
-        $request = "SELECT * FROM ".mysqli_real_escape_string($this->table)." WHERE 1";
+        $request = "SELECT * FROM :table WHERE 1";
         $query = $this->connexion->prepare($request);
-        $query->execute();
+
+        $query->bindValue(':table', $this->table, PDO::PARAM_STRING);
+
+        $query->execute($this->table);
         return $query->fetchAll();
     
     }
@@ -43,8 +45,12 @@ abstract class Model {
     public function getOne(){
 
         $this->getConnection();
-        $request = "SELECT * FROM ".$this->table." WHERE id=".$this->id;
+        $request = "SELECT * FROM :table WHERE id=:id";
         $query = $this->connexion->prepare($request);
+
+        $query->bindValue(':table', $this->table, PDO::PARAM_STRING);
+        $query->bindValue(':id', $this->id, PDO::PARAM_INT);
+
         $query->execute();
         return $query->fetch();
     
@@ -64,8 +70,13 @@ abstract class Model {
         }
         
         $where = substr($where, 0, -5);
-        $request = "SELECT * FROM ".$this->table." WHERE ".$where;
+
+        $request = "SELECT * FROM :table WHERE :where";
         $query = $this->connexion->prepare($request);
+
+        $query->bindValue(':table', $this->table, PDO::PARAM_STRING);
+        $query->bindValue(':where', $where, PDO::PARAM_STRING);
+
         $query->execute();
         return $query->fetchAll();   
 
@@ -94,9 +105,15 @@ abstract class Model {
 
         $keys = substr($keys, 0, -2);
         $values = substr($values, 0, -2);
+        $table = htmlentities($this->table);
 
-        $request = "INSERT INTO `".$this->table."`(".$keys.") VALUES (".$values.")";
+        $request = "INSERT INTO `:table`(:keys) VALUES (:values)";
         $query = $this->connexion->prepare($request);
+
+        $query->bindValue(':table', $this->table, PDO::PARAM_STRING);
+        $query->bindValue(':keys', $keys, PDO::PARAM_STRING);
+        $query->bindValue(':values', $values, PDO::PARAM_STRING);
+
         $status = $query->execute();
         return $status;
         
@@ -125,8 +142,13 @@ abstract class Model {
         $values = substr($values, 0, -5);
         $selector = substr($selector, 0, -5);
 
-        $request = "UPDATE ".$this->table." SET ".$value." WHERE ".$selector;
+        $request = "UPDATE :table SET :values WHERE :selector";
         $query = $this->connexion->prepare($request);
+
+        $query->bindValue(':table', $this->table, PDO::PARAM_STRING);
+        $query->bindValue(':values', $values, PDO::PARAM_STRING);
+        $query->bindValue(':selector', $selector, PDO::PARAM_STRING);
+
         return $query->execute();
     }
 
@@ -147,6 +169,12 @@ abstract class Model {
 
         $request = "UPDATE ".$this->table." SET ".$value_to_update." WHERE id=".$this->id;
         $query = $this->connexion->prepare($request);
+
+        $query->bindValue(':table', $this->table, PDO::PARAM_STRING);
+        $query->bindValue(':value_to_update', $value_to_update, PDO::PARAM_STRING);
+        $query->bindValue(':id', $this->id, PDO::PARAM_STRING);
+
+
         return $query->execute();
 
     }
