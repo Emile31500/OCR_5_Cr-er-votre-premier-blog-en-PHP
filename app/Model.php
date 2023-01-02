@@ -167,12 +167,12 @@ abstract class Model {
 
         $value_to_update  = substr($value_to_update , 0, -2);
 
-        $request = "UPDATE ".$this->table." SET ".$value_to_update." WHERE id=".$this->id;
+        $request = "UPDATE :table SET :$value_to_update WHERE :id";
         $query = $this->connexion->prepare($request);
 
         $query->bindValue(':table', $this->table, PDO::PARAM_STRING);
         $query->bindValue(':value_to_update', $value_to_update, PDO::PARAM_STRING);
-        $query->bindValue(':id', $this->id, PDO::PARAM_STRING);
+        $query->bindValue(':id', $this->id, PDO::PARAM_INT);
 
 
         return $query->execute();

@@ -11,8 +11,11 @@
         public function lire()
         {
             $this->getConnection();
-            $request = "SELECT DISTINCT `articles`.`id`, `libelle`, `article`, `image`, `date_derniere_modification`, `articles`.`date_enregistrement`, `nom`, `prenom` FROM `articles`, `administrateurs` WHERE `articles`.`est_supprimer`=0 AND `articles`.`est_publier`=1 AND `articles`.`id`=".$this->id."";
+            $request = "SELECT DISTINCT `articles`.`id`, `libelle`, `article`, `image`, `date_derniere_modification`, `articles`.`date_enregistrement`, `nom`, `prenom` FROM `articles`, `administrateurs` WHERE `articles`.`est_supprimer`=0 AND `articles`.`est_publier`=1 AND `articles`.`id`=:id";
             $query = $this->connexion->prepare($request);
+
+            $query->bindValue(':id', $this->id, PDO::PARAM_INT);
+
             $query->execute();
             return $query->fetch();  
         }
@@ -41,8 +44,11 @@
         public function supprimer(){
 
             $this->getConnection();
-            $request = "UPDATE `articles` SET `est_supprimer`=1 WHERE `id`=".$this->id." LIMIT 1";
+            $request = "UPDATE `articles` SET `est_supprimer`=1 WHERE `id`=:id LIMIT 1";
             $query = $this->connexion->prepare($request);
+
+            $query->bindValue(':id', $this->id, PDO::PARAM_INT);
+
             $status = $query->execute(); 
             return $status;
 
