@@ -32,7 +32,8 @@ abstract class Model {
     public function getAll(){
 
         $this->getConnection();
-        $request = "SELECT * FROM ".$this->table." WHERE 1";
+        
+        $request = "SELECT * FROM ".mysqli_real_escape_string($this->table)." WHERE 1";
         $query = $this->connexion->prepare($request);
         $query->execute();
         return $query->fetchAll();
