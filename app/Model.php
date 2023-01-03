@@ -29,7 +29,7 @@ abstract class Model {
 
     }
 
-    public function getAll(){
+    public function getAll() : array{
 
         $this->getConnection();
         $request = "SELECT * FROM :table WHERE 1";
@@ -42,7 +42,7 @@ abstract class Model {
     
     }
 
-    public function getOne(){
+    public function getOne() : array{
 
         $this->getConnection();
         $request = "SELECT * FROM :table WHERE id=:id";
@@ -56,7 +56,7 @@ abstract class Model {
     
     }
 
-    public function getBy(){
+    public function getBy() : array{
 
         $this->getConnection();
         $keys = array_keys($this->array_selector_request);
@@ -82,7 +82,7 @@ abstract class Model {
 
     }
 
-    public function insert(){
+    public function insert() : bool{
 
         $this->getConnection();
         $array_values = array_values($this->array_value_request);
@@ -119,7 +119,7 @@ abstract class Model {
         
     }
 
-    public function update(){
+    public function update() : bool{
 
         $this->getConnection();
         
@@ -152,7 +152,7 @@ abstract class Model {
         return $query->execute();
     }
 
-    public function updateOne(){
+    public function updateOne() : bool{
 
         $this->getConnection();
         $keys = array_keys($this->array_value_request);
