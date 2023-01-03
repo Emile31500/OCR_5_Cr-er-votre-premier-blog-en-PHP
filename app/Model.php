@@ -14,13 +14,15 @@ abstract class Model {
     
     public $connexion;
 
-    public function getConnection(){
+    public function getConnection() : bool{
         try{ 
 
             $this->connexion = new PDO('mysql:host='.$this->server.';dbname=' . $this->data_base, $this->user, $this->password);
+            return true;
 
         } catch(PDOException $exception) {
 
+            return false;
             echo 'Erreur : '.$exception->getMessage();
 
             
@@ -35,7 +37,7 @@ abstract class Model {
         $request = "SELECT * FROM :table WHERE 1";
         $query = $this->connexion->prepare($request);
 
-        $query->bindValue(':table', $this->table, PDO::PARAM_STRING);
+        $query->bindValue(':table', $this->table, PDO::PARAM_STR);
 
         $query->execute($this->table);
         return $query->fetchAll();
@@ -48,7 +50,7 @@ abstract class Model {
         $request = "SELECT * FROM :table WHERE id=:id";
         $query = $this->connexion->prepare($request);
 
-        $query->bindValue(':table', $this->table, PDO::PARAM_STRING);
+        $query->bindValue(':table', $this->table, PDO::PARAM_STR);
         $query->bindValue(':id', $this->id, PDO::PARAM_INT);
 
         $query->execute();
@@ -74,8 +76,8 @@ abstract class Model {
         $request = "SELECT * FROM :table WHERE :where";
         $query = $this->connexion->prepare($request);
 
-        $query->bindValue(':table', $this->table, PDO::PARAM_STRING);
-        $query->bindValue(':where', $where, PDO::PARAM_STRING);
+        $query->bindValue(':table', $this->table, PDO::PARAM_STR);
+        $query->bindValue(':where', $where, PDO::PARAM_STR);
 
         $query->execute();
         return $query->fetchAll();   
@@ -110,9 +112,9 @@ abstract class Model {
         $request = "INSERT INTO `:table`(:keys) VALUES (:values)";
         $query = $this->connexion->prepare($request);
 
-        $query->bindValue(':table', $this->table, PDO::PARAM_STRING);
-        $query->bindValue(':keys', $keys, PDO::PARAM_STRING);
-        $query->bindValue(':values', $values, PDO::PARAM_STRING);
+        $query->bindValue(':table', $this->table, PDO::PARAM_STR);
+        $query->bindValue(':keys', $keys, PDO::PARAM_STR);
+        $query->bindValue(':values', $values, PDO::PARAM_STR);
 
         $status = $query->execute();
         return $status;
@@ -145,9 +147,9 @@ abstract class Model {
         $request = "UPDATE :table SET :values WHERE :selector";
         $query = $this->connexion->prepare($request);
 
-        $query->bindValue(':table', $this->table, PDO::PARAM_STRING);
-        $query->bindValue(':values', $values, PDO::PARAM_STRING);
-        $query->bindValue(':selector', $selector, PDO::PARAM_STRING);
+        $query->bindValue(':table', $this->table, PDO::PARAM_STR);
+        $query->bindValue(':values', $values, PDO::PARAM_STR);
+        $query->bindValue(':selector', $selector, PDO::PARAM_STR);
 
         return $query->execute();
     }
@@ -170,8 +172,8 @@ abstract class Model {
         $request = "UPDATE :table SET :$value_to_update WHERE :id";
         $query = $this->connexion->prepare($request);
 
-        $query->bindValue(':table', $this->table, PDO::PARAM_STRING);
-        $query->bindValue(':value_to_update', $value_to_update, PDO::PARAM_STRING);
+        $query->bindValue(':table', $this->table, PDO::PARAM_STR);
+        $query->bindValue(':value_to_update', $value_to_update, PDO::PARAM_STR);
         $query->bindValue(':id', $this->id, PDO::PARAM_INT);
 
 

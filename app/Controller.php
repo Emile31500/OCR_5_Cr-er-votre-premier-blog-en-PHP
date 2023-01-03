@@ -1,10 +1,11 @@
 <?php
 
+    
     abstract class Controller {
 
         public function loadModel(string $model) : bool{
 
-            require_once(ROOT."models/".$model.".php");
+            require_once(str_replace('index.php', "", $_SERVER['SCRIPT_FILENAME'])."models/".$model.".php");
             $this->model = new $model();
             return true;
 

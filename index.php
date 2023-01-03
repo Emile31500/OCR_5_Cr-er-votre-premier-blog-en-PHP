@@ -1,5 +1,5 @@
 <?php
-    //Constance chemin 
+    //Constance chemin
     define('ROOT', str_replace('index.php', "", $_SERVER['SCRIPT_FILENAME']));
     session_start();
 
