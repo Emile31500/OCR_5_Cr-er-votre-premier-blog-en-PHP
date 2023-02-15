@@ -1,0 +1,35 @@
+{% extends 'layout_admin.twig' %}
+{% block style_sheet %}
+    <link href="http://127.0.0.1/Projet%20OC5/style/Article/nouveau.css" rel="stylesheet">
+{% endblock %}
+{% block title %}
+    {{title}}
+{% endblock %}
+{% block content %}
+    <form id="formulaire_ajout_article" action="http://127.0.0.1/Projet%20OC5/article/ajout" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-4 main_img_article_zone">
+                <img src="" class="pre_visu_img" id="pre_visu_img"/>
+            </div>
+            <div class="col-6">
+                <input required type="text" name="title_article" id="title_article" class="form-control form-control-lg" placeholder="Saisissez le titre de l'article"/>
+                <input required type="file" name="title_image" id="title_image" class="form-control" accept=".png, .jpeg"/>
+            </div>
+        </div>
+        <div class="document-editor">
+            <div class="toolbar-container"></div>
+            <div class="content-container">
+                <div id="editor">
+                </div>
+            </div>
+        </div>
+        <textarea name="text_area_article" class="d-none" id="text_area_article"></textarea>
+        <input type="submit" id="ajouter_article" class="btn btn-primary"/>
+    </form>
+    <div class="alert" id="alert_zone">
+    </div>
+{% endblock %}
+{% block javascript_link %}
+    <script src="http://127.0.0.1/Projet%20OC5/JS/ckeditor5/ckeditor.js"></script>
+    <script src="http://127.0.0.1/Projet%20OC5/JS/Article/add.js"></script>
+{% endblock %}

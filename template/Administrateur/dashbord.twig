@@ -1,0 +1,51 @@
+{% extends 'layout_admin.twig' %}
+{% block style_sheet %}
+{% endblock %}
+{% block title %}
+    {{title}}
+{% endblock %}
+{% block content %}
+    <h3 class="h3"> Messages </h3>
+    <div id="messages_list">
+        <table class="table">
+                <thead>
+                    <tr class="table-primary">
+                        <th scope="col" class="optional-content">
+                            #
+                        </th>
+                       <th scope="col" class="optional-content">
+                            Expéditeur
+                        </th>
+                        <th scope="col">
+                            Email
+                        </th>
+                        <th scopre="col">
+                            Date d'envoie
+                        </th>
+                        <th scope="col">
+                            Objet
+                        </th>
+                        <th scope="col">
+                            Message
+                        </th>
+                    <tr>
+                </thead>
+                <tbody id="zone_affichage_messages">
+               
+                </tbody>
+        </table>
+    </div>
+    <h3 class="h3"> Articles </h3>
+    <a href="http://127.0.0.1/Projet%20OC5/article/nouveau"><button type="button" class="btn btn-success"> + </button></a>
+    <button type="button" class="btn btn-danger"> x </button>
+    <div id="articles_list"></div>       
+{% endblock %}
+{% block javascript_link %}
+    
+    <script src="http://127.0.0.1/Projet%20OC5/JS/Message/get.js"></script>
+    <script src="http://127.0.0.1/Projet%20OC5/JS/Article/get_for_admin.js"></script> 
+    <script src="http://127.0.0.1/Projet%20OC5/JS/Article/delete.js"></script>
+    <script src="http://127.0.0.1/Projet%20OC5/JS/Article/publish.js"></script>
+
+
+{% endblock %}

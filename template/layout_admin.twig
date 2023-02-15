@@ -1,0 +1,122 @@
+<html>
+    <head>
+        <title>
+            {{title}}
+        </title>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" tpe="x-icon" href="http://127.0.0.1/icone_carre.png"/>
+        <link href="http://127.0.0.1/Projet%20OC5/style/bootstrap-5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" /> 
+        <script src="http://127.0.0.1/Projet%20OC5/style/bootstrap-5.0.2/dist/js/bootstrap.min.js"></script>
+        <link href="http://127.0.0.1/Projet%20OC5/style/layout.css" rel="stylesheet"/>
+        <link href="http://127.0.0.1/Projet%20OC5/style/style.css" rel="stylesheet"/>
+        {% block style_sheet %}
+        {% endblock %}
+
+    </head>
+    <body>
+        <header class="bg-primary">
+            <div class="container">
+                <div class="row">
+                    <div class="col header-icon">
+                        <img class="icon" src="http://127.0.0.1/Projet%20OC5/media/image/icone/icon_site.png" alt="developpeur php toulouse" />
+                        <h1 class="text-light">RMG Web Toulouse</h1>
+                    </div>
+                    <div class="btn-zone ">
+                            <a href="http://127.0.0.1/Projet%20OC5/utilisateur/seconnecter" class="btn btn-light"> Se connecter</a>
+                            <a href="http://127.0.0.1/Projet%20OC5/utilisateur/sinscrire" class="btn btn-dark"> S'inscrire </a>
+                    </div>
+                </div> 
+            </div>
+        </header>
+        <nav class="navbar navbar-expand-lg navbar-expand navbar-light bg-dark">
+            <div class="container-fluid container">
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link text-light fs-3" aria-current="page" href="http://127.0.0.1/Projet%20OC5/accueil/index">Accueil</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-light fs-3" aria-current="page" href="http://127.0.0.1/Projet%20OC5/article/liste">Articles</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-light fs-3" aria-current="page" href="http://127.0.0.1/Projet%20OC5/administrateur/index">Administration</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        <main class="container">
+            <h2>
+                {% block title %}
+                {% endblock %}
+            </h2>
+            <div class="content">
+
+                {% block content %}
+
+                {% endblock %}
+
+            </div>
+        </main>
+        <footer class="bg-dark text-light ">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <ul class="footer_list">
+                            <p>
+                                A propos
+                            </p>
+                            <li class="phonenumber" ><img class="icone_footer" src="http://127.0.0.1/Projet%20OC5/media/image/icone/"/> 
+                                <a class="text-light" href="">
+                                    Mention légal
+                                </a>
+                            </li>
+                            <li class="email" ><img class="icone_footer" src="http://127.0.0.1/Projet%20OC5/media/image/icone/"/> 
+                                <a class="text-light" href="">
+                                    CGU
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul class="footer_list">
+                            <p>
+                                Contacts
+                            </p>
+                            <li class="phonenumber" ><img class="icone_footer" src="http://127.0.0.1/Projet%20OC5/media/image/icone/icone_telephone_violet_clair.png"/> 
+                                <a class="text-light" href="tel:0662086162">
+                                    06.62.08.61.62
+                                </a>
+                            </li>
+                            <li class="email" ><img class="icone_footer" src="http://127.0.0.1/Projet%20OC5/media/image/icone/icone_mail_violet_clair.png"/>
+                                <a class="text-light" href="mailto:emile00013@gmail.com">
+                                    emile00013@gmail.com
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul class="footer_list">
+                            <p>
+                                Réseaux 
+                            </p>
+                            <li class="github" ><img class="icone_footer" src="http://127.0.0.1/Projet%20OC5/media/image/icone/icone_git_hub_violet_clair.png" alt="github developpeur php toulouse"/>
+                                <a class="text-light" href="https://github.com/Emile31500">
+                                    Emile31500
+                                </a>
+                            </li>
+                            <li class="linkedin" ><img class="icone_footer" src="http://127.0.0.1/Projet%20OC5/media/image/icone/icone_linkedin_violet_clair.png" alt="linkedin developpeur symfony toulouse"/>
+                                <a class="text-light" href="https://www.linkedin.com/in/emile-armengaud-9083b21a1/">
+                                    Emile ARMENGAUD
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div> 
+        </footer>
+    </body>
+</html>
+{% block javascript_link %}
+
+{% endblock %}

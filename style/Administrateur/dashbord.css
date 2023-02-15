@@ -1,0 +1,8 @@
+.article_image{
+        
+    height: 150px;
+    width: 285px; 
+    object-fit: cover;
+    object-position: center;
+
+}
