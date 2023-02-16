@@ -116,8 +116,10 @@ class ControllerArticle extends Controller {
 
     }
 
-    public function listAdmin() : string
+    public function listAdmin() : void
     {
+        
+        header("Content-Type: application/json");
 
         if (isset($_SESSION["id_admin"])) {
 
@@ -127,7 +129,6 @@ class ControllerArticle extends Controller {
             $this->model->array_selector_request = $array_selector;
             $res = $this->model->getListAdmin();
             
-            header("Content-type: application/json");
             $res_json = json_encode($res);
             echo $res_json;
 

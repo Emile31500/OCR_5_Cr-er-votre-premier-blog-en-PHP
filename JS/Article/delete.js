@@ -2,11 +2,9 @@ var article
 var res
 var redirect = new XMLHttpRequest();
 
-console.log("linked");
-
 redirect.addEventListener("loadend", function(){
 
-    var supp_links = document.querySelectorAll("button.supp_link");
+    var supp_links = document.querySelectorAll(".supp_link");
     for (let i = 0; i < supp_links.length; i++) {
 
         supp_links[i].addEventListener("click", function(event){
@@ -19,7 +17,7 @@ redirect.addEventListener("loadend", function(){
                 if (res.status == true){
     
                     alert("Article supprimer");
-                    supp_links[i].parentElement.parentElement.parentElement.parentElement.classList.add("d-none");
+                    supp_links[i].parentElement.parentElement.parentElement.add("d-none");
                     return true;
 
                 } else {

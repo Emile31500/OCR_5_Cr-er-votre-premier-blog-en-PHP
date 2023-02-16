@@ -56,7 +56,6 @@ title_image.addEventListener("input", function (event){
     xml.onreadystatechange = function () {
 
         var res = JSON.parse(xml.response);
-        console.log(res);
         if (res.status == true) {
             
             alert_zone.className = "";

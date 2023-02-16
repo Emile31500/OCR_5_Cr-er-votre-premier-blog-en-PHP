@@ -9,8 +9,7 @@ async function fetchMessages () {
 }
 
 fetchMessages().then(messages => {
-
-    console.log(messages);
+    
     let zone_messages = document.getElementById('zone_affichage_messages');
     let messages_html = '';
     messages.forEach(message => {

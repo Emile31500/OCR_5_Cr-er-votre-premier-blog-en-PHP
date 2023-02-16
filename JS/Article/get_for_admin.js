@@ -11,8 +11,7 @@ async function fetchArticlesAdmin () {
 }
 
 fetchArticlesAdmin().then(articles => {
-
-    console.log(articles);
+    
     let zone_messages = document.getElementById('zone_affichage_messages');
     let articles_html = '';
     articles.forEach(article => {
@@ -23,7 +22,7 @@ fetchArticlesAdmin().then(articles => {
         articles_html += "<img src='http://127.0.0.1/Projet%20OC5/media/image/article_image/" + article.image + "' alt='Blog Image' class='img-fluid'>"
         articles_html += "</div>"
         articles_html += "<div class='col-md-8'>"
-        articles_html += "<h3><a href='#'>"  + article.libelle + "</a></h3>"
+        articles_html += "<h3>"  + article.libelle + " </h3>"
         articles_html += "<p>"
 
         articles_html += "<span> Rédigé le  <span class='fst-italic'>" + article.date_enregistrement+ "</span> par " + article.prenom + " " + article.nom + "</span><br>";
@@ -35,17 +34,13 @@ fetchArticlesAdmin().then(articles => {
         }
 
         articles_html += "</p>"
-        articles_html += "<a href='http://127.0.0.1/Projet%20OC5/article/editer/'" + article.id + "' class='btn border border-primary '>Editer</a>"
-        articles_html += "<a href='#' article='" + article.id + "' class='btn border-danger supp_link'> Supprimer</a>"
-        articles_html += "<a href='#' article='" + article.id + "' class='btn border-success pub_link'>Publier </a>"
+        articles_html += "<a href='http://127.0.0.1/Projet%20OC5/article/editer/" + article.id + "' class='btn border border-primary ml-3 mr-3 '>Editer</a>"
+        articles_html += "<a article='" + article.id + "' class='btn border-danger supp_link ml-3 mr-3'> Supprimer</a>"
+        articles_html += "<a article='" + article.id + "' class='btn border-success pub_link ml-3 mr-3'>Publier </a>"
         articles_html += "</div>"
         articles_html += "</div>"
         articles_html += "</div>"
 
-        
-
-       
-    
     });
 
     articles_list.innerHTML = articles_html;

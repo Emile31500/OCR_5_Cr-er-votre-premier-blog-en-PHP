@@ -73,8 +73,7 @@ sing_form.addEventListener("submit", function(event){
     
 
     xml.onreadystatechange = function (){
-
-        console.log(xml.response)    
+         
         res = xml.response.querySelector("#async_res_zone").innerHTML;
 
        if (res == "singed"){
