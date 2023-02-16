@@ -91,7 +91,7 @@ class ControllerAdministrateur extends Controller {
 
                     }
 
-                    $status = $this->model->insert();
+                    $status = $this->model->insert($administrateur);
 
                     if ($status) {
 

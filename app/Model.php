@@ -32,7 +32,7 @@ abstract class Model {
 
     }
 
-    public function getAll()
+    public function getAll() : array | bool
     {
 
         $this->getConnection();
@@ -43,7 +43,7 @@ abstract class Model {
     
     }
 
-    public function getOne($id) : array
+    public function getOne(int $id) : array | bool
     {
 
         $this->getConnection();
@@ -57,7 +57,7 @@ abstract class Model {
     
     }
 
-    public function getBy($selector) : array
+    public function getBy(array $selector) : array | bool
     {
 
         $this->getConnection();
@@ -83,7 +83,7 @@ abstract class Model {
 
     }
 
-    public function insert($data) : bool
+    public function insert(array $data) : bool
     {
 
         $this->getConnection();
@@ -123,7 +123,7 @@ abstract class Model {
         
     }
 
-    public function update($data, $selector) : bool
+    public function update(array $data, array $selector) : bool
     {
 
         $this->getConnection();
@@ -156,7 +156,7 @@ abstract class Model {
         return $query->execute();
     }
 
-    public function updateOne($data, $id) : bool
+    public function updateOne(array $data, int $id) : bool
     {
 
         $this->getConnection();
