@@ -22,8 +22,23 @@
                         <h1 class="text-light">RMG Web Toulouse</h1>
                     </div>
                     <div id="col identification-zone" class="btn-zone ">
-                        {% block identification %}
-                        {% endblock %}
+                        
+                            {% if user.nom is defined %}
+
+                                <span class="fs-5 text-light text-center">{{user.prenom}} {{user.nom }}</span><br>
+                                <a href="../utilisateur/sedeconnecter" id="btn-sedeconnecter" class="btn btn-light text-center"> Se déconntecter </a>
+
+                            {% elseif admin.nom is defined %}
+
+                                <span class="fs-5 text-light text-center">{{admin.prenom}} {{admin.nom }}</span><br>
+                                <a href="../administrateur/sedeconnecter" id="btn-sedeconnecter" class="btn btn-light text-center"> Se déconntecter </a>
+
+                            {% else %}
+                                
+                                <a href="../utilisateur/seconnecter" class="btn btn-light"> Se connecter</a>
+                                <a href="../utilisateur/sinscrire" class="btn btn-dark"> S'inscrire </a>
+                            
+                            {% endif %}
                     </div>
                 </div> 
             </div>
@@ -32,12 +47,17 @@
             <div class="container-fluid container">
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
+                    <li class="nav-item">
                     <a class="nav-link text-light fs-3" aria-current="page" href="http://127.0.0.1/Projet%20OC5/accueil/index">Accueil</a>
-                  </li>
-                  <li class="nav-item">
+                    </li>
+                    <li class="nav-item">
                     <a class="nav-link text-light fs-3" aria-current="page" href="http://127.0.0.1/Projet%20OC5/article/liste">Articles</a>
-                  </li>
+                    </li>
+                    {% if admin.id is defined %}
+                        <li class="nav-item">
+                            <a class="nav-link text-light fs-3" aria-current="page" href="http://127.0.0.1/Projet%20OC5/administrateur/index">Administration</a>
+                        </li>
+                    {% endif %}
                 </ul>
               </div>
             </div>
@@ -113,5 +133,7 @@
         </footer>
     </body>
 </html>
+
+
 {% block javascript_link %}
 {% endblock %}

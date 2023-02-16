@@ -330,7 +330,9 @@ class HTMLPurifier_Lexer_DOMLex extends HTMLPurifier_Lexer
         if ($use_div) $ret .= '<div>';
         $ret .= $html;
         if ($use_div) $ret .= '</div>';
-        $ret .= '</body></html>';
+        $ret .= '</body></html>
+
+';
         return $ret;
     }
 }

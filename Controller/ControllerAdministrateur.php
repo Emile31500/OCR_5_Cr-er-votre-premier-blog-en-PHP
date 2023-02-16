@@ -87,7 +87,9 @@ class ControllerAdministrateur extends Controller {
                     
                     if ($admin_exist){
 
-                        /*ECHO A METTRE*/$this->renderPage("nouveau", ["res_query" => "error_1"]);
+                        header("Content-Type: application/json");
+                        echo json_encode(["res_query" => "error_1"]);
+
 
                     }
 
@@ -95,13 +97,15 @@ class ControllerAdministrateur extends Controller {
 
                     if ($status) {
 
-                        /*ECHO A METTRE*/$this->renderPage("nouveau", ["res_query" => "singed"]);
+                        header("Content-Type: application/json");
+                        echo json_encode(["res_query" => "singed"]);
 
                     }
 
             } else {
 
-                /*ECHO A METTRE*/$this->renderPage("nouveau", ["res_query" => "error_2"]);
+                header("Content-Type: application/json");
+                echo json_encode(["res_query" => "error_2"]);
 
             }
     }
@@ -144,6 +148,18 @@ class ControllerAdministrateur extends Controller {
 
         }
         
+    }
+    
+
+    public function seDeconnecter() : void
+    {
+        if(isset($_SESSION['id_admin'])){
+
+            unset($_SESSION['id_admin']);
+            header("location:http://127.0.0.1/Projet%20OC5/accueil/index");
+
+        }
+
     }
 
 

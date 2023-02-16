@@ -7,7 +7,6 @@ var password = document.getElementById("password");
 var confirm_password = document.getElementById("confirm_password");
 
 var xml = new XMLHttpRequest();
-xml.responseType = "document";
 var data;
 var res;
 
@@ -28,7 +27,7 @@ sing_form.addEventListener("submit", function(event){
 
     event.preventDefault();
     data = new FormData(this)
-    
+
     if (nom.value.length > 64 ) {
 
         notif_zone.className = "";
@@ -74,7 +73,7 @@ sing_form.addEventListener("submit", function(event){
 
     xml.onreadystatechange = function (){
          
-        res = xml.response.querySelector("#async_res_zone").innerHTML;
+        res = JSON.parse(xml.response);
 
        if (res == "singed"){
 

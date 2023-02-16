@@ -68,6 +68,8 @@ Include `src/index.js` before the closing `</body>` tag.
     <script src="./index.js"></script>
   </body>
 </html>
+
+
 ```
 
 ### Edit `package.json`

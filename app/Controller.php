@@ -19,11 +19,15 @@
 
         }
 
-        public function renderPage(string $fichier, array $array_values=[]) : void
+        public function renderPage(string $fichier, array $data=[]) : void
         {
 
             global $twig;
-            echo $twig->render($this->renderFolder."/".$fichier.".twig", $array_values);
+
+            
+            $data["user"] = $this->getUserConnected();
+            $data["admin"] = $this->getAdminConnected();
+            echo $twig->render($this->renderFolder."/".$fichier.".twig", $data);
 
 
         }
@@ -39,6 +43,20 @@
             }
 
             return $user;
+
+        }
+
+        public function getAdminConnected() : array {
+
+            $admin = [];
+            if (isset($_SESSION["id_admin"])){
+
+                $this->loadModel("Administrateur");
+                $admin = $this->model->getOne($_SESSION["id_admin"]);
+
+            }
+
+            return $admin;
 
         }
     }

@@ -12,17 +12,13 @@
 
         public function sinscrire() : void { 
 
-            $user = $this->getUserConnected();
-            $this->renderPage("sinscrire", ["title" => "Nouveau utilisateur",
-                                            "user" => $user]);
+            $this->renderPage("sinscrire", ["title" => "Nouveau utilisateur"]);
 
         }
 
         public function seconnecter() : void{
 
-            $user =  $this->getUserConnected();
-            $this->renderPage("seconnecter", ["title" => "Connectez-vous !",
-                                                "user" => $user]);
+            $this->renderPage("seconnecter", ["title" => "Connectez-vous !"]);
 
         }
 

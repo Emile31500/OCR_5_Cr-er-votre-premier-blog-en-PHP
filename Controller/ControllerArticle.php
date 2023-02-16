@@ -13,12 +13,10 @@ class ControllerArticle extends Controller {
     public function liste() : void
     {
 
-        $user =  $this->getUserConnected();
         $this->loadModel("Article");
         $result = $this->model->getList();
         $this->renderPage("liste", ["title" => "Articles ",
-                                    "articles" => $result,
-                                    "user" => $user]);
+                                    "articles" => $result]);
 
     }
 
@@ -149,13 +147,11 @@ class ControllerArticle extends Controller {
         $idArticle = $params[2];
         if (isset($idArticle)){
 
-            $user =  $this->getUserConnected();
             $this->loadModel("Article");
             $res = $this->model->lire($idArticle);
 
             $this->renderPage("lire", ["title" => $res["libelle"],
-                                        "article" => $res,
-                                        "user" => $user]);
+                                        "article" => $res]);
         
         }
 

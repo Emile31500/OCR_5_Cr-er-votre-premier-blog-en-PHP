@@ -99,6 +99,8 @@ Be sure to have your pages set up with the latest design and development standar
     -->
   </body>
 </html>
+
+
 ```
 
 For next steps, visit the [Layout docs]({{< docsref "/layout/grid" >}}) or [our official examples]({{< docsref "/examples" >}}) to start laying out your site's content and components.
@@ -116,6 +118,8 @@ Bootstrap requires the use of the HTML5 doctype. Without it, you'll see some fun
 <html lang="en">
   ...
 </html>
+
+
 ```
 
 ### Responsive meta tag
