@@ -67,6 +67,4 @@ class ControllerMessage extends Controller {
     }
 
 }
-
-
-?>
+ ?>

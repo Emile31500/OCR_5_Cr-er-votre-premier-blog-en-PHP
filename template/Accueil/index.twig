@@ -6,7 +6,6 @@
     <link href="http://127.0.0.1/Projet%20OC5/style/accueil.css" rel="stylesheet"/>
 {% endblock %}  
 {% block identification %}
-
     {% if user.nom is defined %}
 
         <span class="fs-5 text-light text-center">{{user.prenom}} {{user.nom }}</span><br>
@@ -18,7 +17,6 @@
         <a href="../utilisateur/sinscrire" class="btn btn-dark"> S'inscrire </a>
     
     {% endif %}
-
 {% endblock %}
 {% block content%}
     <div class="section">

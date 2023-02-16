@@ -6,24 +6,16 @@
         <link href="../style/Article/liste.css" rel="stylesheet"/>
 {% endblock %}
 {% block identification %}
-
     {% if user.nom is defined %}
-
         <span class="fs-5 text-light text-center">{{user.prenom}} {{user.nom }}</span><br>
         <a href="../utilisateur/sedeconnecter" id="btn-sedeconnecter" class="btn btn-light text-center"> Se déconntecter </a>
-
     {% else %}
-        
         <a href="../utilisateur/seconnecter" class="btn btn-light"> Se connecter</a>
         <a href="../utilisateur/sinscrire" class="btn btn-dark"> S'inscrire </a>
-    
     {% endif %}
-
 {% endblock %}
 {% block content %}
-
     {% for article in articles %}
-        
         <div class="border shadow row article">
             <img class="float-left article_image" src="../media/image/article_image/{{article.image}}" />
             <div class="col">
@@ -44,10 +36,7 @@
                 </div>
             </div>
         </div>
-
     {% endfor %}
-
 {% endblock %}
-
 {% block javascript_link %}
 {% endblock %}

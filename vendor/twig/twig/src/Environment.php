@@ -494,7 +494,8 @@ class Environment
                      * where the cache was cleared between the above calls to write to and load from
                      * the cache.
                      */
-                    eval('?>'.$content);
+                    eval(' ?>
+'.$content);
                 }
             }
 

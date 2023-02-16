@@ -12,6 +12,4 @@ class Message extends Model {
     }
 
 }
-
-
-?>
+ ?>

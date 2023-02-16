@@ -59,7 +59,4 @@ class ControllerCommentaire extends Controller
     }
     
 }
-
-
-
-?>
+ ?>

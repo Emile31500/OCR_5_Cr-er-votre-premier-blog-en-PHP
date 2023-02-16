@@ -278,6 +278,4 @@ class ControllerArticle extends Controller {
     }
     
 }
-
-
-?>
+ ?>

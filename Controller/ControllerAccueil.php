@@ -24,6 +24,4 @@ class ControllerAccueil extends Controller {
 
 
 }
-
-
-?>
+ ?>

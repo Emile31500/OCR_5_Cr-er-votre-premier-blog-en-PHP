@@ -121,7 +121,6 @@
 
             } else {
 
-                //header('location:http://127.0.0.1/Projet%20OC5/accueil/index');
                 echo json_encode(["status" => "miss_parameters"]);
 
             }
@@ -129,5 +128,4 @@
         }
 
     }
-
-?>
+ ?>

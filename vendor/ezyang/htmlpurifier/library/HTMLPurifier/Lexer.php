@@ -350,7 +350,8 @@ class HTMLPurifier_Lexer
 
         // if processing instructions are to removed, remove them now
         if ($config->get('Core.RemoveProcessingInstructions')) {
-            $html = preg_replace('#<\?.+?\?>#s', '', $html);
+            $html = preg_replace('#<\?.+?\ ?>
+#s', '', $html);
         }
 
         $hidden_elements = $config->get('Core.HiddenElements');

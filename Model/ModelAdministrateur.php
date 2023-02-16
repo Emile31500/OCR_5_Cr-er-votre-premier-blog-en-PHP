@@ -25,6 +25,4 @@ class Administrateur extends Model {
     }
 
 }
-
-
-?>
+ ?>

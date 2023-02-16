@@ -24,8 +24,4 @@ class Commentaire extends Model
         return $query->fetchAll();   
     }
 }
-
-
-
-
-?>
+ ?>

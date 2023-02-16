@@ -22,7 +22,7 @@ class ControllerAdministrateur extends Controller {
     public function ajouter() : void
     {
 
-        if ($_SESSION["id_admin"] != false ){
+        if (isset($_SESSION["id_admin"])){
 
             $this->renderPage("ajouter", ["title" => "Nouvel administrateur "]);
         
@@ -148,6 +148,4 @@ class ControllerAdministrateur extends Controller {
 
 
 }
-
-
-?>
+ ?>
