@@ -208,7 +208,7 @@ class ControllerArticle extends Controller {
     public function nouveau() : void
     {
 
-        if ($_SESSION["id_admin"] != false ){
+        if (isset($_SESSION["id_admin"])){
 
             $this->renderPage("nouveau", ["title" => "Créer un nouveau article : "]);
 
