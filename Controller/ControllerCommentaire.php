@@ -52,7 +52,7 @@ class ControllerCommentaire extends Controller
 
         } else {
 
-            header("location:http://127.0.0.1/Projet%20OC5/accueil/index/");
+            header("HTTP/1.1 Access Denied");
 
         }
 

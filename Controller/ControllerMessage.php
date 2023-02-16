@@ -47,13 +47,23 @@ class ControllerMessage extends Controller {
             }
     }
 
-    public function getMessages() : string {
+    public function getMessages() : void {
 
-        $this->loadModel("Message");
-        $messages = $this->model->getAll();
+        if (isset($_SESSION["id_admin"])) {
 
-        echo json_encode($messages);
-        //$this->renderPage("get_messages", ["messages" => $messages]);       
+            $this->loadModel("Message");
+            $messages = $this->model->getAll();
+            $json_messages = json_encode($messages);
+
+            header("Content-type: application/json");
+            echo $json_messages;   
+
+        } else {
+
+            header("HTTP/1.1 Access Denied");
+
+        }
+           
     }
 
 }

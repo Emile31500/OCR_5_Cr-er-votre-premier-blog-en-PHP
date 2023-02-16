@@ -106,7 +106,7 @@ class ControllerAdministrateur extends Controller {
             }
     }
 
-    public function connexion()// : void
+    public function connexion() : void
     {
 
         if (isset($_POST["login"]) &&

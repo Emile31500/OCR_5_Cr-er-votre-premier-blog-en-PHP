@@ -116,10 +116,10 @@ class ControllerArticle extends Controller {
 
     }
 
-    public function listAdmin()// : string
+    public function listAdmin() : string
     {
 
-        if ($_SESSION["id_admin"] != false ){
+        if (isset($_SESSION["id_admin"])) {
 
             $array_selector = array("id_redacteur" => $_SESSION["id_admin"]);
 
@@ -130,8 +130,10 @@ class ControllerArticle extends Controller {
             header("Content-type: application/json");
             $res_json = json_encode($res);
             echo $res_json;
-            //$this->renderPage("list_admin", ["articles" => $res]);
-            //echo json_encode($res);
+
+        } else {
+
+            header("HTTP/1.1 Access Denied");
 
         }
 
@@ -164,8 +166,7 @@ class ControllerArticle extends Controller {
         global $params;
         $idArticle = $params[2];
 
-        if (isset($idArticle)&&
-            isset($_SESSION["id_admin"])) {
+        if (isset($idArticle) && isset($_SESSION["id_admin"])) {
 
             $this->loadModel("Article");
             $status = $this->model->supprimer($idArticle);
@@ -174,7 +175,7 @@ class ControllerArticle extends Controller {
 
         } else {
 
-            header("location:http://127.0.0.1/Projet%20OC5/accueil/index");
+            header("HTTP/1.1 Access Denied");
 
         }
 
@@ -197,7 +198,7 @@ class ControllerArticle extends Controller {
 
         } else {
 
-            header("location:http://127.0.0.1/Projet%20OC5/accueil/index");
+            header("HTTP/1.1 Access Denied");
 
         }
 
@@ -212,7 +213,7 @@ class ControllerArticle extends Controller {
 
         } else {
 
-            header("location:http://127.0.0.1/Projet%20OC5/accueil/index");
+            header("HTTP/1.1 Access Denied");
 
         }
 
@@ -270,7 +271,7 @@ class ControllerArticle extends Controller {
 
         } else {
 
-            header("location:http://127.0.0.1/Projet%20OC5/accueil/index");
+            header("HTTP/1.1 Access Denied");
         }
     
     }
