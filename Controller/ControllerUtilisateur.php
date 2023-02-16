@@ -55,7 +55,7 @@
 
                     if ($utilisateur_exist){
 
-                        $this->renderPage("inscription", ["res_query" => "utilisateur_existe"]);
+                        /*ECHO A METTRE*/$this->renderPage("inscription", ["res_query" => "utilisateur_existe"]);
 
                     } else {
 
@@ -73,13 +73,13 @@
                         
                         $status = $this->model->insert($utilisateur);
 
-                        $this->renderPage("inscription", ["res_query" => $status]);
+                        /*ECHO A METTRE*/$this->renderPage("inscription", ["res_query" => $status]);
 
                     }
 
             } else {
 
-                $this->renderPage("inscription", ["res_query" => "parametres_manquant"]);
+                /*ECHO A METTRE*/$this->renderPage("inscription", ["res_query" => "parametres_manquant"]);
 
             }
        

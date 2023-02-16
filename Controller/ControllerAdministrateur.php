@@ -87,7 +87,7 @@ class ControllerAdministrateur extends Controller {
                     
                     if ($admin_exist){
 
-                        $this->renderPage("nouveau", ["res_query" => "error_1"]);
+                        /*ECHO A METTRE*/$this->renderPage("nouveau", ["res_query" => "error_1"]);
 
                     }
 
@@ -95,13 +95,13 @@ class ControllerAdministrateur extends Controller {
 
                     if ($status) {
 
-                        $this->renderPage("nouveau", ["res_query" => "singed"]);
+                        /*ECHO A METTRE*/$this->renderPage("nouveau", ["res_query" => "singed"]);
 
                     }
 
             } else {
 
-                $this->renderPage("nouveau", ["res_query" => "error_2"]);
+                /*ECHO A METTRE*/$this->renderPage("nouveau", ["res_query" => "error_2"]);
 
             }
     }

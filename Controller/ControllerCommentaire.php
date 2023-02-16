@@ -48,7 +48,7 @@ class ControllerCommentaire extends Controller
             $this->loadModel("Commentaire");
             $result = $this->model->Liste($idCommentaires);
             
-            $this->renderPage("liste", ["commentaires"=> $result]);
+            /*ECHO A METTRE*/$this->renderPage("liste", ["commentaires"=> $result]);
 
         } else {
 
