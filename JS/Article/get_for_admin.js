@@ -12,28 +12,39 @@ async function fetchArticlesAdmin () {
 
 fetchArticlesAdmin().then(articles => {
 
+    console.log(articles);
     let zone_messages = document.getElementById('zone_affichage_messages');
     let articles_html = '';
     articles.forEach(article => {
 
-        articles_html +=" <div class='row'>";
-        articles_html += "<img style='margin:0; padding: 0px;' class='article_image rounded-start' src='http://127.0.0.1/Projet%20OC5/media/image/article_image/" + article.image + "'/>"
-        articles_html += "<div style='margin:0; padding-bottom: 0px; position: relative;' class='col-9 border border-light rounded-end'>"
-        articles_html += "<h4>" + article.libelle + "</h4>"
-        articles_html += "<div class='border border-top text-primary' style='width: 100%;position: absolute;padding: 10px 16px 10px 16px;bottom: 0;left: 0;right: 0;margin: auto;'>"; 
-        articles_html += "<div class='btn-group me-2 float-end' role='group' aria-label='First group'>";
-        articles_html += "<button type='button' article='{{article.id}}' class='supp_link btn border border-danger'> x </button>";
-        articles_html += "<a href='http://127.0.0.1/Projet%20OC5/article/editer/" + article.id + "'><button type='button' class='btn border border-info'> Editer </button></a>";
-        articles_html += "<button type='button' article='" + article.id + "' class='pub_link btn border border-success'> Publier </button></div>";
-        articles_html += "<div class='float-start'> Rédigé le  <span class='fst-italic'>" + article.date_enregistrement;
+        articles_html += "<div class='blog-item mt-3 mb-3'>"
+        articles_html += "<div class='row'>"
+        articles_html += "<div class='col-md-4'>"
+        articles_html += "<img src='http://127.0.0.1/Projet%20OC5/media/image/article_image/" + article.image + "' alt='Blog Image' class='img-fluid'>"
+        articles_html += "</div>"
+        articles_html += "<div class='col-md-8'>"
+        articles_html += "<h3><a href='#'>"  + article.libelle + "</a></h3>"
+        articles_html += "<p>"
+
+        articles_html += "<span> Rédigé le  <span class='fst-italic'>" + article.date_enregistrement+ "</span> par " + article.prenom + " " + article.nom + "</span><br>";
 
         if (article.date_enregistrement != article.date_derniere_modification){
 
-            articles_html += "et édité le" + article.date_derniere_modification + "</span> par " + article.prenom + " " + article.nom + "</div></div></div></div>";
-
+            articles_html += "et édité le" + article.date_derniere_modification + "</span>";
+    
         }
 
-        articles_html += "</span> par " + article.prenom + " " + article.nom + "</div></div></div></div>";
+        articles_html += "</p>"
+        articles_html += "<a href='http://127.0.0.1/Projet%20OC5/article/editer/'" + article.id + "' class='btn border border-primary '>Editer</a>"
+        articles_html += "<a href='#' article='" + article.id + "' class='btn border-danger supp_link'> Supprimer</a>"
+        articles_html += "<a href='#' article='" + article.id + "' class='btn border-success pub_link'>Publier </a>"
+        articles_html += "</div>"
+        articles_html += "</div>"
+        articles_html += "</div>"
+
+        
+
+       
     
     });
 

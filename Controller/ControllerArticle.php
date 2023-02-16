@@ -116,7 +116,7 @@ class ControllerArticle extends Controller {
 
     }
 
-    public function listAdmin() : string
+    public function listAdmin()// : string
     {
 
         if ($_SESSION["id_admin"] != false ){
@@ -126,9 +126,12 @@ class ControllerArticle extends Controller {
             $this->loadModel("Article");
             $this->model->array_selector_request = $array_selector;
             $res = $this->model->getListAdmin();
-    
+            
+            header("Content-type: application/json");
+            $res_json = json_encode($res);
+            echo $res_json;
             //$this->renderPage("list_admin", ["articles" => $res]);
-            echo json_encode($res);
+            //echo json_encode($res);
 
         }
 

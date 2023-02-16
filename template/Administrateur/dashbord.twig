@@ -1,5 +1,6 @@
 {% extends 'layout_admin.twig' %}
 {% block style_sheet %}
+     <link href="http://127.0.0.1/Projet%20OC5/style/Administrateur/dashbord.css" rel="stylesheet"/>
 {% endblock %}
 {% block title %}
     {{title}}
@@ -38,7 +39,14 @@
     <h3 class="h3"> Articles </h3>
     <a href="http://127.0.0.1/Projet%20OC5/article/nouveau"><button type="button" class="btn btn-success"> + </button></a>
     <button type="button" class="btn btn-danger"> x </button>
-    <div id="articles_list"></div>       
+    <div class="row">
+        <div class="blog-list" id="articles_list">
+
+            
+        
+        </div>
+    </div>
+      
 {% endblock %}
 {% block javascript_link %}
     
