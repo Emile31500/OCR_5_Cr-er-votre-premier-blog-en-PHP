@@ -11,7 +11,7 @@ class ControllerCommentaire extends Controller
 
     }
 
-    public function Envoyer() : void {
+    public function envoyer() : void {
 
         if(isset($_SESSION["id_user"])){
 
@@ -39,7 +39,7 @@ class ControllerCommentaire extends Controller
 
     }
 
-    public function Liste() : void{
+    public function liste() : void{
 
         global $params;
         $idCommentaires = $params[2];
