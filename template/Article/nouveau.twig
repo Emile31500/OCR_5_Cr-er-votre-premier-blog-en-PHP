@@ -16,20 +16,14 @@
                 <input required type="file" name="title_image" id="title_image" class="form-control" accept=".png, .jpeg"/>
             </div>
         </div>
-        <div class="document-editor">
-            <div class="toolbar-container"></div>
-            <div class="content-container">
-                <div id="editor">
-                </div>
-            </div>
-        </div>
-        <textarea name="text_area_article" class="d-none" id="text_area_article"></textarea>
+        <textarea name="editor" id="editor">
+        </textarea>
         <input type="submit" id="ajouter_article" class="btn btn-primary"/>
     </form>
     <div class="alert" id="alert_zone">
     </div>
 {% endblock %}
 {% block javascript_link %}
-    <script src="http://127.0.0.1/Projet%20OC5/JS/ckeditor5/ckeditor.js"></script>
-    <script src="http://127.0.0.1/Projet%20OC5/JS/Article/add.js"></script>
+    <script src="../vendor/ckeditor/ckeditor/ckeditor.js"></script>
+    <script src="../JS/Article/add.js"></script>
 {% endblock %}

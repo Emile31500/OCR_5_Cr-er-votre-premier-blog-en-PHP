@@ -9,4 +9,5 @@ return array(
     'Twig\\' => array($vendorDir . '/twig/twig/src'),
     'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
     'Emile\\Projet5\\' => array($baseDir . '/src'),
+    'EditorJS\\' => array($vendorDir . '/codex-team/editor.js/EditorJS'),
 );

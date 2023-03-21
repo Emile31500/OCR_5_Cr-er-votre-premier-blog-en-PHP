@@ -7,6 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInit895f80cffc7117a1f9e4375b83b2bcce
 {
     public static $files = array (
+        '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
     );
 
@@ -22,6 +23,7 @@ class ComposerStaticInit895f80cffc7117a1f9e4375b83b2bcce
         'E' => 
         array (
             'Emile\\Projet5\\' => 14,
+            'EditorJS\\' => 9,
         ),
     );
 
@@ -38,6 +40,10 @@ class ComposerStaticInit895f80cffc7117a1f9e4375b83b2bcce
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
+        'EditorJS\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/codex-team/editor.js/EditorJS',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -46,6 +52,13 @@ class ComposerStaticInit895f80cffc7117a1f9e4375b83b2bcce
             'Twig_' => 
             array (
                 0 => __DIR__ . '/..' . '/twig/twig/lib',
+            ),
+        ),
+        'H' => 
+        array (
+            'HTMLPurifier' => 
+            array (
+                0 => __DIR__ . '/..' . '/ezyang/htmlpurifier/library',
             ),
         ),
     );
