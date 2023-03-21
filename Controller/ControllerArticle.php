@@ -194,7 +194,8 @@ class ControllerArticle extends Controller {
             isset($_SESSION["id_admin"])) {
 
             $this->loadModel("Article");
-            $article_a_publier = ["est_publier" => 1];
+            $article = $this->model->getOne($idArticle);
+            $article_a_publier = ["est_publier" => !($article["est_publier"])];
 
             $status = $this->model->updateOne($article_a_publier, $idArticle);
 

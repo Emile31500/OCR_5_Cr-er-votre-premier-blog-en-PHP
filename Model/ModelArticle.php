@@ -26,7 +26,7 @@
         {
 
             $this->getConnection();
-            $request = "SELECT DISTINCT `articles`.`id`, `id_redacteur`, `libelle`, `article`, `image`, `date_derniere_modification`, `articles`.`date_enregistrement`, `articles`.`est_supprimer`, `nom`, `prenom` FROM `articles`, `administrateurs` WHERE `articles`.`est_supprimer`=0";
+            $request = "SELECT DISTINCT `articles`.`id`, `id_redacteur`, `libelle`, `article`, `image`, `date_derniere_modification`, `articles`.`date_enregistrement`, `articles`.`est_supprimer`, `articles`.`est_publier`, `nom`, `prenom` FROM `articles`, `administrateurs` WHERE `articles`.`est_supprimer`=0";
             $query = $this->connexion->prepare($request);
             $query->execute();
             return $query->fetchAll();   
