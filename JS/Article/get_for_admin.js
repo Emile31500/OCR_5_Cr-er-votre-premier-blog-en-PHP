@@ -34,14 +34,14 @@ fetchArticlesAdmin().then(articles => {
         }
 
         articles_html += "</p>"
-        articles_html += "<a href='http://127.0.0.1/Projet%20OC5/article/editer/" + article.id + "' class='btn border border-primary ml-3 mr-3 '>Editer</a>"
-        articles_html += "<a article='" + article.id + "' class='btn border-danger supp_link ml-3 mr-3'> Supprimer</a>"
+        articles_html += "<a href='http://127.0.0.1/Projet%20OC5/article/editer/" + article.id + "' class='btn mx-2 border border-primary ml-3 mr-3 '>Editer</a>"
+        articles_html += "<a article='" + article.id + "' class='btn mx-2 border-danger sup_link ml-3 mr-3'> Supprimer</a>"
 
         let txt_btn = "Publier";
         if (article.est_publier == true){
             txt_btn = "Dépublier";
         }
-        articles_html += "<a article='" + article.id + "' class='btn border-success pub_link ml-3 mr-3'>" + txt_btn + "</a>"
+        articles_html += "<a article='" + article.id + "' class='btn mx-2 border-success pub_link ml-3 mr-3'>" + txt_btn + "</a>"
         articles_html += "</div>"
         articles_html += "</div>"
         articles_html += "</div>"
@@ -51,47 +51,7 @@ fetchArticlesAdmin().then(articles => {
     articles_list.innerHTML = articles_html;
 
 }).then(function(){
-
-    let article;
-    let res;
-    let xml = new XMLHttpRequest();
-    let pub_link = document.querySelectorAll(".pub_link");
-    let message;
-
-    for (let i = 0; i < pub_link.length; i++) {
-
-        pub_link[i].addEventListener("click", function(event){
-
-            event.preventDefault();
-            article = this.getAttribute("article");
-            if(this.innerHTML == "Publier"){
-                message = "Article publié";
-            } else {
-                message = "Article dépublié";
-            }
-
-            xml.onreadystatechange = function(){
-                
-                res = JSON.parse(xml.response).status;
-
-                if (res === true){
-    
-                    alert(message);
-                    return true;
-
-                } else {
-
-                    alert("Echec lors de la requête");
-                    return false;
-
-                }
-    
-            }
-            
-            xml.open("POST", "http://127.0.0.1/Projet%20OC5/article/publier/" + article, true);
-            xml.send();
-        
-        })
-    }
-
+    publishArt();
+}).then(function (){
+    deleteArt();
 });

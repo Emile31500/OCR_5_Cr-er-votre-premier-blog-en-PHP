@@ -1,39 +1,37 @@
-var article
-var res
-var redirect = new XMLHttpRequest();
+function deleteArt() {
+    
+    let article;
+    let res;
+    let xml = new XMLHttpRequest();
+    
+    let sup_link = document.querySelectorAll(".sup_link");
+    for (let i = 0; i < sup_link.length; i++) {
 
-redirect.addEventListener("loadend", function(){
-
-    var supp_links = document.querySelectorAll(".supp_link");
-    for (let i = 0; i < supp_links.length; i++) {
-
-        supp_links[i].addEventListener("click", function(event){
-
+        sup_link[i].addEventListener("click", function(event){
+            
             event.preventDefault();
+            console.log("event listened");
             article = this.getAttribute("article");
-            redirect.onreadystatechange = function(){
+            xml.onreadystatechange = function(){
                 
-                res = JSON.parse(redirect.response);
+                res = JSON.parse(xml.response);
                 if (res.status == true){
     
-                    alert("Article supprimer");
-                    supp_links[i].parentElement.parentElement.parentElement.add("d-none");
-                    return true;
-
+                    alert("Article supprimé");
+                    sup_link[i].parentElement.parentElement.parentElement.classList.add("d-none");
+                   
                 } else {
 
                     alert("Echec lors de la supression");
-                    return false;
 
                 }
     
             }
             
-            redirect.open("POST", "http://127.0.0.1/Projet%20OC5/article/supprimer/" + article);
-            redirect.send();
+            xml.open("POST", "http://127.0.0.1/Projet%20OC5/article/supprimer/" + article);
+            xml.send();
         
         })
     }
-
-}, true);
-
+    
+}
