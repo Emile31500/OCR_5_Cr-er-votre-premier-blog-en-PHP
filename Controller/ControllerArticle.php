@@ -52,7 +52,7 @@ class ControllerArticle extends Controller {
 
             if (isset($_FILES["title_image"]) ||
                 isset($_POST["title_article"]) ||
-                isset($_POST["text_area_article"])) {
+                isset($_POST["editor"])) {
 
                 $date = date("Y-m-d h:i:s");
                 $article_modife = [
@@ -78,6 +78,7 @@ class ControllerArticle extends Controller {
                 
                     } else {
 
+                        header("Content-Type: application/json");
                         echo json_encode(["status" => "error_1"]);
 
                     }
@@ -90,19 +91,25 @@ class ControllerArticle extends Controller {
 
                 }
 
-                if (isset($_POST["text_area_article"])){
+                if (isset($_POST["editor"])){
 
-                    $article_modife["article"] = $_POST["text_area_article"];
+                    $article_modife["article"] = $_POST["editor"];
 
                 }
                     
                 $this->loadModel("Article");
                 $res = $this->model->UpdateOne($article_modife, $_POST["id_article"]);
-                echo json_encode(["status" => $res]);
+
+                // header("Content-Type: application/json");
+                // echo json_encode(["status" => $res]);
+                header("location:http://127.0.0.1/Projet%20OC5/article/editer/".$_POST["id_article"]);
+
 
             } else {
 
-                echo json_encode(["status" => "error_2"]);
+                // header("Content-Type: application/json");
+                // echo json_encode(["status" => "error_2"]);
+                header("location:http://127.0.0.1/Projet%20OC5/article/editer/".$_POST["id_article"]);
         
             }
 
@@ -223,7 +230,7 @@ class ControllerArticle extends Controller {
        if (isset($_SESSION["id_admin"])){
 
 
-            if (isset($_POST["text_area_article"]) &&  
+            if (isset($_POST["editor"]) &&  
                 isset($_POST["title_article"]) &&  
                 isset($_FILES["title_image"])){
 
@@ -242,7 +249,7 @@ class ControllerArticle extends Controller {
                         $article = [
                                     "id_redacteur" => $_SESSION["id_admin"],
                                     "libelle" => $_POST["title_article"],
-                                    "article" => $_POST["text_area_article"],
+                                    "article" => $_POST["editor"],
                                     "image" => $random_image_name, 
                                     "date_derniere_modification" => $date,
                                     "date_enregistrement" => $date

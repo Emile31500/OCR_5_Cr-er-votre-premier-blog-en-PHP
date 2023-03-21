@@ -1,31 +1,19 @@
-DecoupledEditor
-        .create( document.querySelector( '#editor' ), {
-            // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
-        } )
-        .then( editor => {
-            const toolbarContainer = document.querySelector( 'main .toolbar-container' );
+window.onload = function() {
+    CKEDITOR.replace('editor')
+}
 
-            toolbarContainer.prepend( editor.ui.view.toolbar.element );
-
-            window.editor = editor;
-        } )
-        .catch( err => {
-            console.error( err.stack );
-        } );
-
+var editor =  document.getElementById("editor");
 var alert_zone = document.getElementById("alert_zone");
 var title_image = document.getElementById("title_image");
 var pre_visu_img = document.getElementById("pre_visu_img");
 var title_article = document.getElementById("title_article");
 var ajouter_article = document.getElementById("ajouter_article");
-var text_area_article =  document.getElementById("text_area_article");
 var formulaire_ajout_article = document.getElementById("formulaire_ajout_article");
 var data;
 var xml = new XMLHttpRequest();
 
 title_image.addEventListener("input", function (event){
-
-
+    
     if(event.target.files.length > 0){
 
         var src = URL.createObjectURL(event.target.files[0]);
@@ -34,15 +22,10 @@ title_image.addEventListener("input", function (event){
     }
 
 });
-  
-
-
 
 formulaire_ajout_article.addEventListener("submit", function(event){
 
     event.preventDefault();
-    let editor = document.getElementById("editor");
-    text_area_article.value = editor.innerHTML;
 
     if (editor.innerHTML.length > 16384){
 
@@ -62,7 +45,6 @@ formulaire_ajout_article.addEventListener("submit", function(event){
         var res = JSON.parse(xml.response);
 
         if (res.status == true) {
-
             
             alert_zone.className = "";
             alert_zone.classList.add("alert");
@@ -71,7 +53,6 @@ formulaire_ajout_article.addEventListener("submit", function(event){
             return true;
 
         } else {
-
             
             alert_zone.className = "";
             alert_zone.classList.add("alert");

@@ -25,11 +25,9 @@ abstract class Model {
 
             return false;
             echo 'Erreur : '.$exception->getMessage();
-
             
         }
-
-
+   
     }
 
     public function getAll() : array | bool
@@ -176,7 +174,8 @@ abstract class Model {
 
         for ($i=0; $i < sizeof($values); $i++) { 
             
-            $query->bindValue(':values'.$i, $values[$i], PDO::PARAM_STR);
+            $valToBind = ':values'.$i;
+            $query->bindValue($valToBind, $values[$i], PDO::PARAM_STR);
 
         }
 
