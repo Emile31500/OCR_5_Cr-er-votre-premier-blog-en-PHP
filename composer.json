@@ -13,7 +13,6 @@
     ],
     "require": {
         "twig/twig": "^1.0",
-        "codex-team/editor.js": "dev-master",
         "ckeditor/ckeditor": "^4.20"
     }
 }
