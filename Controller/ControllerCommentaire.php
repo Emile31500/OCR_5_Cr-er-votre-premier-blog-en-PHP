@@ -41,8 +41,7 @@ class ControllerCommentaire extends Controller
 
     public function liste() : void{
 
-        global $params;
-        $idCommentaires = $params[2];
+        $idCommentaires = $this->thirdUrlParameters;
         if(isset($idCommentaires)){
             
             $this->loadModel("Commentaire");

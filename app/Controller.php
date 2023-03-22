@@ -2,6 +2,15 @@
 
     abstract class Controller {
 
+        public $thirdUrlParameters;
+        private $twigObject;
+        
+        public function setTwig($twig) : void{
+
+            $this->twigObject = $twig;
+
+        }
+
         public function forbideNotAdmin() : void
         {
             if(isset($_SESSION["id_admin"])) {
@@ -22,12 +31,9 @@
         public function renderPage(string $fichier, array $data=[]) : void
         {
 
-            global $twig;
-
-            
             $data["user"] = $this->getUserConnected();
             $data["admin"] = $this->getAdminConnected();
-            echo $twig->render($this->renderFolder."/".$fichier.".twig", $data);
+            echo $this->twigObject->render($this->renderFolder."/".$fichier.".twig", $data);
 
 
         }

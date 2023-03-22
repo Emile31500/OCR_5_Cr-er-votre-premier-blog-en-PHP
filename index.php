@@ -34,7 +34,15 @@
         if(file_exists(ROOT.'Controller/'.$controller.'.php')){
 
             require_once(ROOT.'Controller/'.$controller.'.php');
+
             $controller = new $controller();
+            $controller->setTwig($twig);
+
+            if (isset($params[2])) {
+
+                $controller->thirdUrlParameters = $params[2];
+
+            }
 
             if (method_exists($controller, $action)){
 
@@ -43,7 +51,6 @@
             } else {
     
                 http_response_code(404);
-                echo 1;
                 echo $twig->render("404.twig");
 
             }
@@ -51,7 +58,6 @@
         } else {
 
             http_response_code(404);
-            echo 2;
             echo $twig->render("404.twig");
             
         }
@@ -59,7 +65,6 @@
     } else{
 
         http_response_code(404);
-        echo 3;
         echo $twig->render("404.twig");
 
     }

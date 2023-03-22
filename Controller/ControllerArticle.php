@@ -22,10 +22,8 @@ class ControllerArticle extends Controller {
 
     public function editer() : void
     {
-        
-        global $params;
         $this->forbideNotAdmin();
-        $idArticle = $params[2];
+        $idArticle = $this->thirdUrlParameters;
 
         if (isset($idArticle) && isset($_SESSION["id_admin"])){
 
@@ -100,15 +98,11 @@ class ControllerArticle extends Controller {
                 $this->loadModel("Article");
                 $res = $this->model->UpdateOne($article_modife, $_POST["id_article"]);
 
-                // header("Content-Type: application/json");
-                // echo json_encode(["status" => $res]);
                 header("location:http://127.0.0.1/Projet%20OC5/article/editer/".$_POST["id_article"]);
 
 
             } else {
 
-                // header("Content-Type: application/json");
-                // echo json_encode(["status" => "error_2"]);
                 header("location:http://127.0.0.1/Projet%20OC5/article/editer/".$_POST["id_article"]);
         
             }
@@ -149,9 +143,7 @@ class ControllerArticle extends Controller {
 
     public function lire() : void
     {
-
-        global $params;
-        $idArticle = $params[2];
+        $idArticle = $this->thirdUrlParameters;
         if (isset($idArticle)){
 
             $this->loadModel("Article");
@@ -166,9 +158,7 @@ class ControllerArticle extends Controller {
 
     public function supprimer() : void
     {
-
-        global $params;
-        $idArticle = $params[2];
+        $idArticle = $this->thirdUrlParameters;
 
         if (isset($idArticle) && isset($_SESSION["id_admin"])) {
 
@@ -187,9 +177,8 @@ class ControllerArticle extends Controller {
 
     public function publier() : void
     {
-
-        global $params;
-        $idArticle = $params[2];
+        
+        $idArticle = $this->thirdUrlParameters;
         if (isset($idArticle) &&
             isset($_SESSION["id_admin"])) {
 
