@@ -4,8 +4,8 @@
 
         public $thirdUrlParameters;
         private $twigObject;
-        
-        public function setTwig($twig) : void{
+
+        public function setTwig(Twig_Environment $twig) : void{
 
             $this->twigObject = $twig;
 
