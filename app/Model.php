@@ -62,8 +62,9 @@ abstract class Model {
         $keys = array_keys($this->selector);
         $values = array_values($this->selector);
         $where = "";
+        $keysLenght = sizeof($keys);
 
-        for ($i=0; $i < sizeof($keys); $i++) {
+        for ($i=0; $i < $keysLenght; $i++) {
 
             $where = $where.$keys[$i]."='".$values[$i]."' AND ";
 
@@ -85,14 +86,14 @@ abstract class Model {
     {
 
         $this->getConnection();
-        $array_values = array_values($data);
-        $array_keys = array_keys($data);
+        $dataValues = array_values($data);
+        $dataKeys = array_keys($data);
         $keys = "";
         $values = "";
 
-        foreach ($array_keys as $array_key){
+        foreach ($dataKeys as $dataKey){
 
-            $keys = $keys."`".$array_key."`, ";
+            $keys = $keys."`".$dataKey."`, ";
 
         }
 
@@ -100,8 +101,8 @@ abstract class Model {
 
         $request = "INSERT INTO $this->table($keys) VALUES (";
         
-        
-        for ($index = 0; $index < count($array_values); $index++){
+        $dataValuesLength = count($dataValues);
+        for ($index = 0; $index < $dataValuesLength; $index++){
 
             $request .= ':values'.$index.', ';
 
@@ -110,9 +111,11 @@ abstract class Model {
         $request .=  ')';
         
         $query = $this->connexion->prepare($request);
-        for ($index = 0; $index < count($array_values); $index++){
+
+        $dataValuesLength = count($dataValues);
+        for ($index = 0; $index < $dataValuesLength; $index++){
             
-            $query->bindValue(':values'.$index, $array_values[$index], PDO::PARAM_STR);
+            $query->bindValue(':values'.$index, $dataValues[$index], PDO::PARAM_STR);
         
         }
         
@@ -162,7 +165,8 @@ abstract class Model {
         $values = array_values($data);
         $request = "UPDATE `$this->table` SET ";
 
-        for ($i=0; $i < sizeof($keys); $i++) { 
+        $keysLenght = sizeof($keys);
+        for ($i=0; $i < $keyLenght; $i++) { 
             
             $request = $request."`".$keys[$i]."`=:values".$i.", ";
 
@@ -172,7 +176,8 @@ abstract class Model {
         $request = $request." WHERE id=:id LIMIT 1";
         $query = $this->connexion->prepare($request);
 
-        for ($i=0; $i < sizeof($values); $i++) { 
+        $valuesLenght = sizeof($values);
+        for ($i=0; $i < $valuesLenght; $i++) { 
             
             $valToBind = ':values'.$i;
             $query->bindValue($valToBind, $values[$i], PDO::PARAM_STR);
