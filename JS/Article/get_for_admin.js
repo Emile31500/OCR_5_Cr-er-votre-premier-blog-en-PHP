@@ -34,19 +34,35 @@ fetchArticlesAdmin().then(articles => {
         }
 
         articles_html += "</p>"
-        articles_html += "<a href='http://127.0.0.1/Projet%20OC5/article/editer/" + article.id + "' class='btn mx-2 border border-primary ml-3 mr-3 '>Editer</a>"
-        articles_html += "<a article='" + article.id + "' class='btn mx-2 border-danger sup_link ml-3 mr-3'> Supprimer</a>"
+        articles_html += "<a href='http://127.0.0.1/Projet%20OC5/article/editer/" + article.id + "' class='btn border border-primary  mx-2 ml-3 mr-3 '>Editer</a>"
+        articles_html += "<button article='" + article.id + "' type='button' class='btn border-primary sup_link ml-3 mr-3' data-bs-toggle='modal' data-bs-target='#confirmSup'> Supprimer </button>";
 
         let txt_btn = "Publier";
         if (article.est_publier == true){
             txt_btn = "Dépublier";
         }
-        articles_html += "<a article='" + article.id + "' class='btn mx-2 border-success pub_link ml-3 mr-3'>" + txt_btn + "</a>"
+        articles_html += "<a article='" + article.id + "' class='btn border-success pub_link mx-2' >" + txt_btn + "</a>"
         articles_html += "</div>"
         articles_html += "</div>"
         articles_html += "</div>"
 
     });
+
+    articles_html += "<div class='modal fade' id='confirmSup' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='confirmSupLabel' aria-hidden='true'>"
+    articles_html += "<div class='modal-dialog'>"
+    articles_html += "<div class='modal-content'>"
+    articles_html += "<div class='modal-header'>"
+    articles_html += "<h3 class='modal-title fs-5' id='confirmSupLabel'>Attention ! </h3>"
+    articles_html += "<button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>"
+    articles_html += "</div>"
+    articles_html += "<div id='modal-body-sup' class='modal-body'> Voulez-vous vraiment supprimer votre article ?</div>"
+    articles_html += "<div class='modal-footer'>"
+    articles_html += "<button type='button' id='closing_button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>"
+    articles_html += "<button type='button' id='confirm_delete' atricle-id='' class='btn btn-danger'> Confirmer la suppression </button>"
+    articles_html += "</div>"
+    articles_html += "</div>"
+    articles_html += "</div>"
+    articles_html += "</div>"
 
     articles_list.innerHTML = articles_html;
 
