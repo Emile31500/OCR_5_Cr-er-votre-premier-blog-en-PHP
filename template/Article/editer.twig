@@ -1,0 +1,32 @@
+{% extends 'layout.twig' %}
+{% block style_sheet %}
+    <link href="http://127.0.0.1/Projet%20OC5/style/Article/nouveau.css" rel="stylesheet">
+{% endblock %}
+{% block title %}
+    Edition d'article
+{% endblock %}
+{% block content %}
+    <form id="edit_form" action="http://127.0.0.1/Projet%20OC5/article/edition" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-4 main_img_article_zone">
+                <img src="http://127.0.0.1/Projet%20OC5/media/image/article_image/{{article.image}}" class="d-block pre_visu_img" id="pre_visu_img"/>
+            </div>
+            <div class="col-6">
+                <input required type="text" name="title_article" id="title_article" class="form-control form-control-lg" placeholder="Saisissez le titre de l'article" value="{{title}}"/>
+                <input type="file" name="title_image" id="title_image" class="form-control" accept=".png, .jpeg"/>
+            </div>
+        </div>
+        <textarea name="editor" id="editor">
+            {{ article.article }}
+        </textarea>
+        <input name="id_article" value="{{article.id}}" class="d-none">
+        <input type="submit" id="ajouter_article" class="btn btn-primary"/>
+    </form>
+    <div class="alert" id="alert_zone"></div>
+{% endblock %} 
+{% block javascript_link %}
+    <script src="../../vendor/ckeditor/ckeditor/ckeditor.js"></script>
+    <script src="../../JS/Article/edit.js"></script>
+{% endblock %}
+
+

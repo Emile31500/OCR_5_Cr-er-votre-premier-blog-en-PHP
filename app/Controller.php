@@ -1,0 +1,70 @@
+<?php
+
+    abstract class Controller {
+
+        public $thirdUrlParameters;
+        private $twigObject;
+
+        public function setTwig(Twig_Environment $twig) : void{
+
+            $this->twigObject = $twig;
+
+        }
+
+        public function forbideNotAdmin() : void
+        {
+            if(isset($_SESSION["id_admin"])) {
+
+                header("lcoation:http://127.0.0.1/Projet%20OC5/accueil/index");
+
+            }
+
+        }
+
+        public function loadModel(string $model) : void
+        {
+            require_once(str_replace('index.php', "", $_SERVER['SCRIPT_FILENAME'])."Model/Model".$model.".php");
+            $this->model = new $model();
+
+        }
+
+        public function renderPage(string $fichier, array $data=[]) : void
+        {
+
+            $data["user"] = $this->getUserConnected();
+            $data["admin"] = $this->getAdminConnected();
+            echo $this->twigObject->render($this->renderFolder."/".$fichier.".twig", $data);
+
+
+        }
+
+        public function getUserConnected() : array {
+
+            $user = [];
+            if (isset($_SESSION["id_user"])){
+
+                $this->loadModel("Utilisateur");
+                $user = $this->model->getOne($_SESSION["id_user"]);
+
+            }
+
+            return $user;
+
+        }
+
+        public function getAdminConnected() : array {
+
+            $admin = [];
+            if (isset($_SESSION["id_admin"])){
+
+                $this->loadModel("Administrateur");
+                $admin = $this->model->getOne($_SESSION["id_admin"]);
+
+            }
+
+            return $admin;
+
+        }
+    }
+
+ ?>

@@ -1,0 +1,16 @@
+{
+    "name": "root/p5",
+    "autoload": {
+        "psr-4": {
+            "Root\\P5\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Emile"
+        }
+    ],
+    "require": {
+        "twig/twig": "^1.0"
+    }
+}
