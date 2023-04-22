@@ -26,6 +26,7 @@ class ControllerCommentaire extends Controller
                 
                 $result = $this->model->insert($commentaire);
                 
+                header("Content-Type:application/json");
                 echo json_encode(["status"=> $result]);
 
             }
@@ -33,6 +34,7 @@ class ControllerCommentaire extends Controller
 
         } else {
 
+            header("Content-Type:application/json");
             echo json_encode(["status"=> "error_1"]);
         
         }
@@ -47,7 +49,7 @@ class ControllerCommentaire extends Controller
             $this->loadModel("Commentaire");
             $result = $this->model->Liste($idCommentaires);
             
-            /*ECHO A METTRE*/$this->renderPage("liste", ["commentaires"=> $result]);
+            $this->renderPage("liste", ["commentaires"=> $result]);
 
         } else {
 

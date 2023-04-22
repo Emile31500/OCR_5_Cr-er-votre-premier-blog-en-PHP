@@ -164,11 +164,12 @@ abstract class Model {
         $keys = array_keys($data);
         $values = array_values($data);
         $request = "UPDATE `$this->table` SET ";
+        
+        $i = 0;
+        foreach($keys as $key) {
 
-        $keysLenght = sizeof($keys);
-        for ($i=0; $i < $keyLenght; $i++) { 
-            
-            $request = $request."`".$keys[$i]."`=:values".$i.", ";
+            $request .= " `".$key."`=:values".$i.", "; 
+            $i++;
 
         }
 
@@ -177,13 +178,15 @@ abstract class Model {
         $query = $this->connexion->prepare($request);
 
         $valuesLenght = sizeof($values);
-        for ($i=0; $i < $valuesLenght; $i++) { 
-            
+
+        $i = 0;
+        foreach($values as $value) {
+
             $valToBind = ':values'.$i;
-            $query->bindValue($valToBind, $values[$i], PDO::PARAM_STR);
-
+            $query->bindValue($valToBind, $value, PDO::PARAM_STR);
+            $i++;
         }
-
+        
         $query->bindValue(':id', $id, PDO::PARAM_INT);
         return $query->execute();
 

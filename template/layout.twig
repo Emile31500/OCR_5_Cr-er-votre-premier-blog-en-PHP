@@ -27,17 +27,17 @@
                             {% if user.nom is defined %}
 
                                 <span class="fs-5 text-light text-center">{{user.prenom}} {{user.nom }}</span><br>
-                                <a href="../utilisateur/sedeconnecter" id="btn-sedeconnecter" class="btn btn-light text-center"> Se déconntecter </a>
+                                <a href="http://127.0.0.1/Projet%20OC5/utilisateur/sedeconnecter" id="btn-sedeconnecter" class="btn btn-light text-center"> Se déconntecter </a>
 
                             {% elseif admin.nom is defined %}
 
                                 <span class="fs-5 text-light text-center">{{admin.prenom}} {{admin.nom }}</span><br>
-                                <a href="../administrateur/sedeconnecter" id="btn-sedeconnecter" class="btn btn-light text-center"> Se déconntecter </a>
+                                <a href="http://127.0.0.1/Projet%20OC5/administrateur/sedeconnecter" id="btn-sedeconnecter" class="btn btn-light text-center"> Se déconntecter </a>
 
                             {% else %}
                                 
-                                <a href="../utilisateur/seconnecter" class="btn btn-light"> Se connecter</a>
-                                <a href="../utilisateur/sinscrire" class="btn btn-dark"> S'inscrire </a>
+                                <a href="http://127.0.0.1/Projet%20OC5/utilisateur/seconnecter" class="btn btn-light"> Se connecter</a>
+                                <a href="http://127.0.0.1/Projet%20OC5/utilisateur/sinscrire" class="btn btn-dark"> S'inscrire </a>
                             
                             {% endif %}
                     </div>

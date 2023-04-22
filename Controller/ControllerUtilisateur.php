@@ -105,9 +105,12 @@
                         $_SESSION["id_user"] = $user["id"];
                         unset($_SESSION["id_admin"]);
                         
+                        header("Content-Type:application/json");
                         echo json_encode(["status" => "password_ok"]);
+
                     } else {
 
+                        header("Content-Type:application/json");
                         echo json_encode(["status" => "password_notok"]);
 
                     }
@@ -115,12 +118,14 @@
 
                 } else {
 
+                    header("Content-Type:application/json");
                     echo json_encode(["status" => "user_not_exist"]);
 
                 }
 
             } else {
 
+                header("Content-Type:application/json");
                 echo json_encode(["status" => "miss_parameters"]);
 
             }

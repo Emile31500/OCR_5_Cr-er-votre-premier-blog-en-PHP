@@ -1,10 +1,5 @@
 <?php
 
-/*ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);*/
-
-    //Constance chemin
     define('ROOT', str_replace('index.php', "", $_SERVER['SCRIPT_FILENAME']));
     session_start();
 
@@ -13,8 +8,6 @@ error_reporting(E_ALL);*/
     if (is_dir("./template")){
 
         $loader = new \Twig\Loader\FilesystemLoader(ROOT.'template');
-        
-        // $loader = new Twig_loader_Filesystem(__DIR__."/template");
 
     } else {
 

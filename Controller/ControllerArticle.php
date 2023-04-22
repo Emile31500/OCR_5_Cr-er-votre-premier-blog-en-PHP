@@ -167,6 +167,7 @@ class ControllerArticle extends Controller {
             $this->loadModel("Article");
             $status = $this->model->supprimer($idArticle);
 
+            header("Content-Type:application/json");
             echo json_encode(["status" => $status]);
 
         } else {
@@ -181,15 +182,19 @@ class ControllerArticle extends Controller {
     {
         
         $idArticle = $this->thirdUrlParameters;
+        
         if (isset($idArticle) &&
             isset($_SESSION["id_admin"])) {
 
             $this->loadModel("Article");
             $article = $this->model->getOne($idArticle);
-            $article_a_publier = ["est_publier" => !($article["est_publier"])];
+            $state = !$article["est_publier "];
+
+            $article_a_publier = ["est_publier" => $state];
 
             $status = $this->model->updateOne($article_a_publier, $idArticle);
 
+            header("Content-Type:application/json");
             echo json_encode(["status" => $status]);
 
         } else {
@@ -249,19 +254,22 @@ class ControllerArticle extends Controller {
 
                         $this->loadModel("Article");
                         $status = $this->model->insert($article);
-                        
+                       
+                        header("Content-Type:application/json");
                        echo json_encode(["status" => $status]);
 
                     } else {
 
+                        header("Content-Type:application/json");
                        echo json_encode(["status" => "error_1"]);
 
                     }     
 
             } else {
-
                 
-               echo json_encode(["status" => "error_2"]);
+            
+                header("Content-Type:application/json");
+                echo json_encode(["status" => "error_2"]);
 
             }
 

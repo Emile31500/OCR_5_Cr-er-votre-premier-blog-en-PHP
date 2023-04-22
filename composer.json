@@ -11,6 +11,7 @@
         }
     ],
     "require": {
-        "twig/twig": "^1.0"
+        "twig/twig": "^1.0",
+        "ckeditor/ckeditor": "^4.20"
     }
 }
