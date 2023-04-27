@@ -231,6 +231,9 @@ class ControllerArticle extends Controller {
                 isset($_POST["title_article"]) &&  
                 isset($_FILES["title_image"])){
 
+                    // var_dump($_FILES['title_image']);
+                    // die;
+
                     $image_name = $_FILES["title_image"]["tmp_name"];
                     $image_size = $_FILES["title_image"]["size"];
                     $image_max_size = 1024^2;
@@ -240,7 +243,7 @@ class ControllerArticle extends Controller {
                         $random_image_name = uniqid();
                         $random_image_name .= ".png";
 
-                        move_uploaded_file($image_name, "media/image/article_image/".$random_image_name);
+                        $state = move_uploaded_file("home/emile/Images/".$image_name, "./media/image/article_image/".$random_image_name);
                         $date = date("Y-m-d h:i:s");
 
                         $article = [
@@ -256,12 +259,12 @@ class ControllerArticle extends Controller {
                         $status = $this->model->insert($article);
                        
                         header("Content-Type:application/json");
-                       echo json_encode(["status" => $status]);
+                        echo json_encode(["status" => $status]);
 
                     } else {
 
                         header("Content-Type:application/json");
-                       echo json_encode(["status" => "error_1"]);
+                        echo json_encode(["status" => "error_1"]);
 
                     }     
 
