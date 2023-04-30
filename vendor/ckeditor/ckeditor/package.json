@@ -1,6 +1,10 @@
 {
   "name": "ckeditor4",
+<<<<<<< HEAD
   "version": "4.21.0",
+=======
+  "version": "4.20.2",
+>>>>>>> OCR5/master
   "description": "JavaScript WYSIWYG web text editor.",
   "main": "ckeditor.js",
   "repository": {

@@ -8,5 +8,9 @@ $baseDir = dirname($vendorDir);
 return array(
     'Twig\\' => array($vendorDir . '/twig/twig/src'),
     'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
+<<<<<<< HEAD
     'Root\\P5\\' => array($baseDir . '/src'),
+=======
+    'Emile\\Projet5\\' => array($baseDir . '/src'),
+>>>>>>> OCR5/master
 );

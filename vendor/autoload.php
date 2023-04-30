@@ -22,4 +22,8 @@ if (PHP_VERSION_ID < 50600) {
 
 require_once __DIR__ . '/composer/autoload_real.php';
 
+<<<<<<< HEAD
 return ComposerAutoloaderInit0f128b730ec7aaf1abfd8935d3e62d39::getLoader();
+=======
+return ComposerAutoloaderInit895f80cffc7117a1f9e4375b83b2bcce::getLoader();
+>>>>>>> OCR5/master

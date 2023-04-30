@@ -38,12 +38,18 @@ class ControllerMessage extends Controller {
                 $this->loadModel("Message");
                 $status = $this->model->insert($message);
 
+<<<<<<< HEAD
                 header("Content-type: application/json");
+=======
+>>>>>>> OCR5/master
                 echo json_encode(["status" => $status]);
             
             } else {
 
+<<<<<<< HEAD
                 header("Content-type: application/json");
+=======
+>>>>>>> OCR5/master
                 echo json_encode(["status" => 'erreur']);
 
             }
@@ -55,9 +61,16 @@ class ControllerMessage extends Controller {
 
             $this->loadModel("Message");
             $messages = $this->model->getAll();
+<<<<<<< HEAD
 
             header("Content-Type:application/json");
             echo json_encode($messages);
+=======
+            $json_messages = json_encode($messages);
+
+            header("Content-type: application/json");
+            echo $json_messages;   
+>>>>>>> OCR5/master
 
         } else {
 

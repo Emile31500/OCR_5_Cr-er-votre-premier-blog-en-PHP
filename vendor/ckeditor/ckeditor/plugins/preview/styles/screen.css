@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 div[style*="page-break-after"] {
 	background:url( ../images/pagebreak.gif ) no-repeat center center;
 	clear:both;
@@ -8,3 +9,15 @@ div[style*="page-break-after"] {
 	height:7px;
 	cursor:default;
 }
+=======
+div[style*="page-break-after"] {
+	background:url( ../images/pagebreak.gif ) no-repeat center center;
+	clear:both;
+	width:100%;
+	border-top:#999 1px dotted;
+	border-bottom:#999 1px dotted;
+	padding:0;
+	height:7px;
+	cursor:default;
+}
+>>>>>>> OCR5/master

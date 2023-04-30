@@ -2,6 +2,7 @@
     "packages": [
         {
             "name": "ckeditor/ckeditor",
+<<<<<<< HEAD
             "version": "4.21.0",
             "version_normalized": "4.21.0.0",
             "source": {
@@ -16,6 +17,22 @@
                 "shasum": ""
             },
             "time": "2023-03-22T10:37:38+00:00",
+=======
+            "version": "4.20.2",
+            "version_normalized": "4.20.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ckeditor/ckeditor4-releases.git",
+                "reference": "8cc8f1b065f93d90c305c2609fec4e4215dd20ba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ckeditor/ckeditor4-releases/zipball/8cc8f1b065f93d90c305c2609fec4e4215dd20ba",
+                "reference": "8cc8f1b065f93d90c305c2609fec4e4215dd20ba",
+                "shasum": ""
+            },
+            "time": "2023-02-15T12:55:37+00:00",
+>>>>>>> OCR5/master
             "type": "library",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",

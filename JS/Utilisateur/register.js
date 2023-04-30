@@ -74,7 +74,11 @@ sing_form.addEventListener("submit", function(event){
         notif_zone.innerHTML = "La longueur de votre mot de passe n'est pas valide : Il doit contenir entre 8 et 64 caractères";
         return false;
     
+<<<<<<< HEAD
     } else if (is_password_valid(password.value) === false) {
+=======
+    } else if (is_password_valid(password.value) == false) {
+>>>>>>> OCR5/master
 
         notif_zone.className = "";
         notif_zone.classList.add("alert");
@@ -84,11 +88,21 @@ sing_form.addEventListener("submit", function(event){
 
     }
     
+<<<<<<< HEAD
     xml.onreadystatechange = function (){
  
         res = JSON.parse(xml.response);
 
         if (res.status == "utilisateur_existe"){
+=======
+    xml.responseType = "document";
+    xml.onreadystatechange = function (){
+ 
+        res = xml.response.querySelector("#async_res_zone").innerHTML;
+        
+
+        if (res == "utilisateur_existe"){
+>>>>>>> OCR5/master
 
             notif_zone.className = "";
             notif_zone.classList.add("alert");
@@ -96,7 +110,11 @@ sing_form.addEventListener("submit", function(event){
             notif_zone.innerHTML = "Enregistrement impossible : Un utilisateur avec cette email ou ce numéro de téléphone existe déjà";
             return false;
 
+<<<<<<< HEAD
         } else if (res.status == "parametre_manquant"){
+=======
+        } else if (res == "parametres_manquant"){
+>>>>>>> OCR5/master
 
             notif_zone.className = "";
             notif_zone.classList.add("alert");
@@ -104,7 +122,11 @@ sing_form.addEventListener("submit", function(event){
             notif_zone.innerHTML = "Un paramètre est manquant pour votre inscription : mercid e remplir tout les champs nécessaire ou de contacter notre service technique.";
             return false;
 
+<<<<<<< HEAD
         }  else if (res.status == true){
+=======
+        }  else if (res == 1 || res == true || res == "true"){
+>>>>>>> OCR5/master
 
             notif_zone.className = "";
             notif_zone.classList.add("alert");
@@ -126,6 +148,12 @@ sing_form.addEventListener("submit", function(event){
     }
     
 
+<<<<<<< HEAD
     xml.open("POST", "http://127.0.0.1/Projet%20OC5/utilisateur/inscription", true);
     xml.send(data)
+=======
+    xml.open("POST", "http://127.0.0.1/Projet%20OC5/utilisateur/inscription");
+    xml.send(data)
+
+>>>>>>> OCR5/master
 });

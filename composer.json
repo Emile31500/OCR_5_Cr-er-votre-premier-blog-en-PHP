@@ -1,13 +1,25 @@
 {
+<<<<<<< HEAD
     "name": "root/p5",
     "autoload": {
         "psr-4": {
             "Root\\P5\\": "src/"
+=======
+    "name": "emile/projet5",
+    "autoload": {
+        "psr-4": {
+            "Emile\\Projet5\\": "src/"
+>>>>>>> OCR5/master
         }
     },
     "authors": [
         {
+<<<<<<< HEAD
             "name": "Emile"
+=======
+            "name": "Emile",
+            "email": "emile00013@gmail.com"
+>>>>>>> OCR5/master
         }
     ],
     "require": {

@@ -4,7 +4,11 @@
 
 namespace Composer\Autoload;
 
+<<<<<<< HEAD
 class ComposerStaticInit0f128b730ec7aaf1abfd8935d3e62d39
+=======
+class ComposerStaticInit895f80cffc7117a1f9e4375b83b2bcce
+>>>>>>> OCR5/master
 {
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
@@ -19,9 +23,15 @@ class ComposerStaticInit0f128b730ec7aaf1abfd8935d3e62d39
         array (
             'Symfony\\Polyfill\\Ctype\\' => 23,
         ),
+<<<<<<< HEAD
         'R' => 
         array (
             'Root\\P5\\' => 8,
+=======
+        'E' => 
+        array (
+            'Emile\\Projet5\\' => 14,
+>>>>>>> OCR5/master
         ),
     );
 
@@ -34,7 +44,11 @@ class ComposerStaticInit0f128b730ec7aaf1abfd8935d3e62d39
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
+<<<<<<< HEAD
         'Root\\P5\\' => 
+=======
+        'Emile\\Projet5\\' => 
+>>>>>>> OCR5/master
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
@@ -57,10 +71,17 @@ class ComposerStaticInit0f128b730ec7aaf1abfd8935d3e62d39
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+<<<<<<< HEAD
             $loader->prefixLengthsPsr4 = ComposerStaticInit0f128b730ec7aaf1abfd8935d3e62d39::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit0f128b730ec7aaf1abfd8935d3e62d39::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit0f128b730ec7aaf1abfd8935d3e62d39::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit0f128b730ec7aaf1abfd8935d3e62d39::$classMap;
+=======
+            $loader->prefixLengthsPsr4 = ComposerStaticInit895f80cffc7117a1f9e4375b83b2bcce::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit895f80cffc7117a1f9e4375b83b2bcce::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit895f80cffc7117a1f9e4375b83b2bcce::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit895f80cffc7117a1f9e4375b83b2bcce::$classMap;
+>>>>>>> OCR5/master
 
         }, null, ClassLoader::class);
     }

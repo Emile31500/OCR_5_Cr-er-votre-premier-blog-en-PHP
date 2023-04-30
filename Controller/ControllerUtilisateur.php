@@ -30,7 +30,11 @@
         }
 
         public function inscription() : void{
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> OCR5/master
             if (isset($_POST["name"]) &&
                 isset($_POST["firstname"]) &&
                 isset($_POST["user_name"]) &&
@@ -51,8 +55,12 @@
 
                     if ($utilisateur_exist){
 
+<<<<<<< HEAD
                         header("Content-Type:application/json");
                         echo json_encode(["status" => "utilisateur_existe"]);
+=======
+                        /*ECHO A METTRE*/$this->renderPage("inscription", ["res_query" => "utilisateur_existe"]);
+>>>>>>> OCR5/master
 
                     } else {
 
@@ -64,22 +72,33 @@
                             "nom_utilisateur" => $_POST["user_name"],
                             "date_naissance" => $_POST["birth_day"],
                             "email" => $_POST["email"],
+<<<<<<< HEAD
                             "telephone" => $_POST["phone_number"],
+=======
+>>>>>>> OCR5/master
                             "hash_mdp" => $password_hash,
                             "date_enregistrement" => $date_enregistrement
                         ];
                         
                         $status = $this->model->insert($utilisateur);
 
+<<<<<<< HEAD
                         header("Content-Type:application/json");
                         echo json_encode(["status" => $status]);
+=======
+                        /*ECHO A METTRE*/$this->renderPage("inscription", ["res_query" => $status]);
+>>>>>>> OCR5/master
 
                     }
 
             } else {
 
+<<<<<<< HEAD
                 header("Content-Type:application/json");
                 echo json_encode(["status" => "parametre_manquant"]);
+=======
+                /*ECHO A METTRE*/$this->renderPage("inscription", ["res_query" => "parametres_manquant"]);
+>>>>>>> OCR5/master
 
             }
        
@@ -105,12 +124,18 @@
                         $_SESSION["id_user"] = $user["id"];
                         unset($_SESSION["id_admin"]);
                         
+<<<<<<< HEAD
                         header("Content-Type:application/json");
                         echo json_encode(["status" => "password_ok"]);
 
                     } else {
 
                         header("Content-Type:application/json");
+=======
+                        echo json_encode(["status" => "password_ok"]);
+                    } else {
+
+>>>>>>> OCR5/master
                         echo json_encode(["status" => "password_notok"]);
 
                     }
@@ -118,14 +143,20 @@
 
                 } else {
 
+<<<<<<< HEAD
                     header("Content-Type:application/json");
+=======
+>>>>>>> OCR5/master
                     echo json_encode(["status" => "user_not_exist"]);
 
                 }
 
             } else {
 
+<<<<<<< HEAD
                 header("Content-Type:application/json");
+=======
+>>>>>>> OCR5/master
                 echo json_encode(["status" => "miss_parameters"]);
 
             }

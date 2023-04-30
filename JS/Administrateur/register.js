@@ -72,17 +72,28 @@ sing_form.addEventListener("submit", function(event){
     
 
     xml.onreadystatechange = function (){
+<<<<<<< HEAD
         
         res = JSON.parse(xml.response);
 
         if (res.status === "singed"){
+=======
+         
+        res = JSON.parse(xml.response);
+
+       if (res == "singed"){
+>>>>>>> OCR5/master
 
             notif_zone.className = "";
             notif_zone.classList.add("alert");
             notif_zone.classList.add("alert-success");
             notif_zone.innerHTML = "Votre inscription a bien été confirmé";
             return true
+<<<<<<< HEAD
                 
+=======
+            
+>>>>>>> OCR5/master
         } else {
     
             notif_zone.className = "";
@@ -95,7 +106,11 @@ sing_form.addEventListener("submit", function(event){
 
     }
 
+<<<<<<< HEAD
     xml.open("POST", "http://127.0.0.1/Projet%20OC5/administrateur/nouveau/", true);
+=======
+    xml.open("POST", "http://127.0.0.1/Projet%20OC5/administrateur/nouveau");
+>>>>>>> OCR5/master
     xml.send(data)
 
 });

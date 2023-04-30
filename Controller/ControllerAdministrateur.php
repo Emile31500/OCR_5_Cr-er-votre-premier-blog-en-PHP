@@ -22,7 +22,11 @@ class ControllerAdministrateur extends Controller {
     public function ajouter() : void
     {
 
+<<<<<<< HEAD
         if (isset($_SESSION["id_admin"]) || true){
+=======
+        if (isset($_SESSION["id_admin"])){
+>>>>>>> OCR5/master
 
             $this->renderPage("ajouter", ["title" => "Nouvel administrateur "]);
         
@@ -88,7 +92,11 @@ class ControllerAdministrateur extends Controller {
                     if ($admin_exist){
 
                         header("Content-Type: application/json");
+<<<<<<< HEAD
                         echo json_encode(["status" => false]);
+=======
+                        echo json_encode(["res_query" => "error_1"]);
+>>>>>>> OCR5/master
 
 
                     }
@@ -98,14 +106,22 @@ class ControllerAdministrateur extends Controller {
                     if ($status) {
 
                         header("Content-Type: application/json");
+<<<<<<< HEAD
                         echo json_encode(["status" => "singed"]);
+=======
+                        echo json_encode(["res_query" => "singed"]);
+>>>>>>> OCR5/master
 
                     }
 
             } else {
 
                 header("Content-Type: application/json");
+<<<<<<< HEAD
                 echo json_encode(["status" => false]);
+=======
+                echo json_encode(["res_query" => "error_2"]);
+>>>>>>> OCR5/master
 
             }
     }
@@ -131,7 +147,10 @@ class ControllerAdministrateur extends Controller {
 
                 } else {
 
+<<<<<<< HEAD
                     header('Content-Type: application/json');
+=======
+>>>>>>> OCR5/master
                     echo json_encode(["status" => "error_1"]);
                 
                 }
@@ -139,14 +158,20 @@ class ControllerAdministrateur extends Controller {
 
             } else {
 
+<<<<<<< HEAD
                 header('Content-Type: application/json');
+=======
+>>>>>>> OCR5/master
                 echo json_encode(["status" => "error_2"]);
             
             }
 
         } else {
 
+<<<<<<< HEAD
             header('Content-Type: application/json');
+=======
+>>>>>>> OCR5/master
             echo json_encode(["status" => "error_3"]); 
 
         }

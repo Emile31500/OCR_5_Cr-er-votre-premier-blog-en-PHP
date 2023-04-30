@@ -4,6 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "bee0e3721e8f273cd4cc757cbb4a1370",
     "packages": [
         {
@@ -18,6 +19,22 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/ckeditor/ckeditor4-releases/zipball/af71d07caa2172c53e0e426250e3b0189137915b",
                 "reference": "af71d07caa2172c53e0e426250e3b0189137915b",
+=======
+    "content-hash": "b9259f36098bde50b410be01357e2fca",
+    "packages": [
+        {
+            "name": "ckeditor/ckeditor",
+            "version": "4.20.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ckeditor/ckeditor4-releases.git",
+                "reference": "8cc8f1b065f93d90c305c2609fec4e4215dd20ba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ckeditor/ckeditor4-releases/zipball/8cc8f1b065f93d90c305c2609fec4e4215dd20ba",
+                "reference": "8cc8f1b065f93d90c305c2609fec4e4215dd20ba",
+>>>>>>> OCR5/master
                 "shasum": ""
             },
             "type": "library",
@@ -52,7 +69,11 @@
                 "source": "https://github.com/ckeditor/ckeditor4",
                 "wiki": "https://ckeditor.com/docs/ckeditor4/latest/"
             },
+<<<<<<< HEAD
             "time": "2023-03-22T10:37:38+00:00"
+=======
+            "time": "2023-02-15T12:55:37+00:00"
+>>>>>>> OCR5/master
         },
         {
             "name": "symfony/polyfill-ctype",

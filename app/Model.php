@@ -164,12 +164,20 @@ abstract class Model {
         $keys = array_keys($data);
         $values = array_values($data);
         $request = "UPDATE `$this->table` SET ";
+<<<<<<< HEAD
         
         $i = 0;
         foreach($keys as $key) {
 
             $request .= " `".$key."`=:values".$i.", "; 
             $i++;
+=======
+
+        $keysLenght = sizeof($keys);
+        for ($i=0; $i < $keyLenght; $i++) { 
+            
+            $request = $request."`".$keys[$i]."`=:values".$i.", ";
+>>>>>>> OCR5/master
 
         }
 
@@ -178,6 +186,7 @@ abstract class Model {
         $query = $this->connexion->prepare($request);
 
         $valuesLenght = sizeof($values);
+<<<<<<< HEAD
 
         $i = 0;
         foreach($values as $value) {
@@ -187,6 +196,15 @@ abstract class Model {
             $i++;
         }
         
+=======
+        for ($i=0; $i < $valuesLenght; $i++) { 
+            
+            $valToBind = ':values'.$i;
+            $query->bindValue($valToBind, $values[$i], PDO::PARAM_STR);
+
+        }
+
+>>>>>>> OCR5/master
         $query->bindValue(':id', $id, PDO::PARAM_INT);
         return $query->execute();
 

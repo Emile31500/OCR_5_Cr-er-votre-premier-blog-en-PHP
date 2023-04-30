@@ -2,7 +2,10 @@
 class ControllerAccueil extends Controller {
 
     public const RENDER_FOLDER = "Accueil";
+<<<<<<< HEAD
     
+=======
+>>>>>>> OCR5/master
 
     public function __Construct() {
 

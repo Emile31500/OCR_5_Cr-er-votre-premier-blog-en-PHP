@@ -6,9 +6,13 @@ class ControllerArticle extends Controller {
 
     public function __Construct() {
 
+<<<<<<< HEAD
         //$this->renderFolder = self::RENDER_FOLDER;
         $this->renderFolder = "Article";
 
+=======
+        $this->renderFolder = self::RENDER_FOLDER;
+>>>>>>> OCR5/master
 
     }
 
@@ -167,7 +171,10 @@ class ControllerArticle extends Controller {
             $this->loadModel("Article");
             $status = $this->model->supprimer($idArticle);
 
+<<<<<<< HEAD
             header("Content-Type:application/json");
+=======
+>>>>>>> OCR5/master
             echo json_encode(["status" => $status]);
 
         } else {
@@ -182,12 +189,16 @@ class ControllerArticle extends Controller {
     {
         
         $idArticle = $this->thirdUrlParameters;
+<<<<<<< HEAD
         
+=======
+>>>>>>> OCR5/master
         if (isset($idArticle) &&
             isset($_SESSION["id_admin"])) {
 
             $this->loadModel("Article");
             $article = $this->model->getOne($idArticle);
+<<<<<<< HEAD
             $state = !$article["est_publier "];
 
             $article_a_publier = ["est_publier" => $state];
@@ -195,6 +206,12 @@ class ControllerArticle extends Controller {
             $status = $this->model->updateOne($article_a_publier, $idArticle);
 
             header("Content-Type:application/json");
+=======
+            $article_a_publier = ["est_publier" => !($article["est_publier"])];
+
+            $status = $this->model->updateOne($article_a_publier, $idArticle);
+
+>>>>>>> OCR5/master
             echo json_encode(["status" => $status]);
 
         } else {
@@ -231,9 +248,12 @@ class ControllerArticle extends Controller {
                 isset($_POST["title_article"]) &&  
                 isset($_FILES["title_image"])){
 
+<<<<<<< HEAD
                     // var_dump($_FILES['title_image']);
                     // die;
 
+=======
+>>>>>>> OCR5/master
                     $image_name = $_FILES["title_image"]["tmp_name"];
                     $image_size = $_FILES["title_image"]["size"];
                     $image_max_size = 1024^2;
@@ -243,7 +263,11 @@ class ControllerArticle extends Controller {
                         $random_image_name = uniqid();
                         $random_image_name .= ".png";
 
+<<<<<<< HEAD
                         $state = move_uploaded_file("home/emile/Images/".$image_name, "./media/image/article_image/".$random_image_name);
+=======
+                        move_uploaded_file($image_name, "media/image/article_image/".$random_image_name);
+>>>>>>> OCR5/master
                         $date = date("Y-m-d h:i:s");
 
                         $article = [
@@ -257,6 +281,7 @@ class ControllerArticle extends Controller {
 
                         $this->loadModel("Article");
                         $status = $this->model->insert($article);
+<<<<<<< HEAD
                        
                         header("Content-Type:application/json");
                         echo json_encode(["status" => $status]);
@@ -265,14 +290,28 @@ class ControllerArticle extends Controller {
 
                         header("Content-Type:application/json");
                         echo json_encode(["status" => "error_1"]);
+=======
+                        
+                       echo json_encode(["status" => $status]);
+
+                    } else {
+
+                       echo json_encode(["status" => "error_1"]);
+>>>>>>> OCR5/master
 
                     }     
 
             } else {
+<<<<<<< HEAD
                 
             
                 header("Content-Type:application/json");
                 echo json_encode(["status" => "error_2"]);
+=======
+
+                
+               echo json_encode(["status" => "error_2"]);
+>>>>>>> OCR5/master
 
             }
 

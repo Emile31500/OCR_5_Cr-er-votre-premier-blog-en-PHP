@@ -1,5 +1,9 @@
 /**
+<<<<<<< HEAD
  * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
+=======
+ * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+>>>>>>> OCR5/master
  * For licensing, see https://ckeditor.com/legal/ckeditor-oss-license
  */
 

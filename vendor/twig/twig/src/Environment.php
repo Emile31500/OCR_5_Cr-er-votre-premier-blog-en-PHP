@@ -494,7 +494,12 @@ class Environment
                      * where the cache was cleared between the above calls to write to and load from
                      * the cache.
                      */
+<<<<<<< HEAD
                     eval('?>'.$content);
+=======
+                    eval(' ?>
+'.$content);
+>>>>>>> OCR5/master
                 }
             }
 

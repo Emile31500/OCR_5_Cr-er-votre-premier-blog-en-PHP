@@ -9,11 +9,16 @@
 
  * Import the projec with this git command :
  <br>```git clone https://github.com/Emile31500/OCR_5_Cr-er-votre-premier-blog-en-PHP ```</br>
+<<<<<<< HEAD
 Put the directory "Projet OC5" in the **server web root**
+=======
+Put the directory "Projet OCR5" in the **server web root**
+>>>>>>> OCR5/master
 
  * Import the DB "Projet OC5/mon_blog.sql"
 
  * Change the mysql user login and password in : "Projet OC5/app/model.php" 
+<<<<<<< HEAD
 
  * *The site dosn't work ?*
 
@@ -33,16 +38,25 @@ Put the directory "Projet OC5" in the **server web root**
 <br></br>
 
 ## Explication en français
+=======
+<br></br>
+ ## Explication en français
+>>>>>>> OCR5/master
 
  * Installez un serveur web. De préférence Wamp
 
  * Importez le projet avec cette commande git :
 <br> ```git clone https://github.com/Emile31500/OCR_5_Cr-er-votre-premier-blog-en-PHP``` </br>
+<<<<<<< HEAD
 Mettre le répertoire Projet OC5 **à la racine du serveur web**
+=======
+Mettre le répertoire Projet OCR5 **à la racine du serveur web**
+>>>>>>> OCR5/master
 
  * Importez la BDD "Projet OC5/mon_blog.sql"
 
  * Changez le login & mdp de l'utilisateur mysql dans  : "Projet OC5/app/model.php" 
+<<<<<<< HEAD
 
  * *Le site ne marche pas ?*
 
@@ -56,3 +70,5 @@ Mettre le répertoire Projet OC5 **à la racine du serveur web**
 
  * ```composer require twig/twig:^1.0```
  * Et : ```composer require ckeditor/ckeditor:^4.2.0```
+=======
+>>>>>>> OCR5/master

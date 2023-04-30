@@ -26,7 +26,10 @@ class ControllerCommentaire extends Controller
                 
                 $result = $this->model->insert($commentaire);
                 
+<<<<<<< HEAD
                 header("Content-Type:application/json");
+=======
+>>>>>>> OCR5/master
                 echo json_encode(["status"=> $result]);
 
             }
@@ -34,7 +37,10 @@ class ControllerCommentaire extends Controller
 
         } else {
 
+<<<<<<< HEAD
             header("Content-Type:application/json");
+=======
+>>>>>>> OCR5/master
             echo json_encode(["status"=> "error_1"]);
         
         }
@@ -49,7 +55,11 @@ class ControllerCommentaire extends Controller
             $this->loadModel("Commentaire");
             $result = $this->model->Liste($idCommentaires);
             
+<<<<<<< HEAD
             $this->renderPage("liste", ["commentaires"=> $result]);
+=======
+            /*ECHO A METTRE*/$this->renderPage("liste", ["commentaires"=> $result]);
+>>>>>>> OCR5/master
 
         } else {
 
