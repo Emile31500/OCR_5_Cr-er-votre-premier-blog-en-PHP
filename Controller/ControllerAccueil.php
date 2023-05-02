@@ -1,4 +1,5 @@
 <?php
+
 class ControllerAccueil extends Controller {
 
     public const RENDER_FOLDER = "Accueil";
