@@ -1,0 +1,13 @@
+.article {
+
+    margin: 25px;
+    
+}
+
+.article_image {
+
+    object-fit: cover;
+    max-width: 400px;
+    max-height: 200px;
+
+}
