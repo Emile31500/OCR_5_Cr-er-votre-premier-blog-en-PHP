@@ -71,7 +71,7 @@ class ControllerArticle extends Controller {
                         $random_image_name = uniqid();
                         $random_image_name .= ".png";
 
-                        move_uploaded_file($image_name, "media/image/article_image/".$random_image_name);
+                        move_uploaded_file($image_name, "Public/media/image/article_image/".$random_image_name);
                         
 
                         $article_modife["image"] = $random_image_name;
@@ -231,9 +231,6 @@ class ControllerArticle extends Controller {
                 isset($_POST["title_article"]) &&  
                 isset($_FILES["title_image"])){
 
-                    // var_dump($_FILES['title_image']);
-                    // die;
-
                     $image_name = $_FILES["title_image"]["tmp_name"];
                     $image_size = $_FILES["title_image"]["size"];
                     $image_max_size = 1024^2;
@@ -243,7 +240,7 @@ class ControllerArticle extends Controller {
                         $random_image_name = uniqid();
                         $random_image_name .= ".png";
 
-                        $state = move_uploaded_file("home/emile/Images/".$image_name, "./media/image/article_image/".$random_image_name);
+                        move_uploaded_file($image_name, "Public/media/image/article_image/".$random_image_name);
                         $date = date("Y-m-d h:i:s");
 
                         $article = [
