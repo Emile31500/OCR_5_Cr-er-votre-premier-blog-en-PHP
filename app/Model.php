@@ -2,6 +2,7 @@
 abstract class Model {
 
     private $server = "127.0.0.1"; 
+    private $port = "3306";
     private $data_base = "mon_blog";
     private $user = "root";
     private $password = "";
@@ -10,7 +11,6 @@ abstract class Model {
 
     public $table = "";
     public $id = "";
-    
     public $connexion;
 
     public function getConnection() : bool
@@ -18,7 +18,7 @@ abstract class Model {
     
         try{ 
 
-            $this->connexion = new PDO('mysql:host='.$this->server.';dbname=' . $this->data_base, $this->user, $this->password);
+            $this->connexion = new PDO('mysql:host='.$this->server.';port='.$this->port.';dbname=' . $this->data_base, $this->user, $this->password);
             return true;
 
         } catch(PDOException $exception) {

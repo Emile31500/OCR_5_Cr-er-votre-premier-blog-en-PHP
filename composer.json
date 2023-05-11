@@ -12,6 +12,7 @@
     ],
     "require": {
         "twig/twig": "^1.0",
-        "ckeditor/ckeditor": "^4.20"
+        "ckeditor/ckeditor": "^4.20",
+        "symfony/mailer": "^6.2"
     }
 }
